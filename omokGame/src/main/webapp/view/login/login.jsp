@@ -65,17 +65,6 @@
 			}
 
 		})
-
-		//로그인 완료하면 이동
-		function sleep(num) {
-			var now = new Date();
-			var stop = now.getTime() + num;
-			while (true) {
-				now = new Date();
-				if (now.getTime() > stop)
-					return;
-			}
-		}
 	}
 </script>
 </head>

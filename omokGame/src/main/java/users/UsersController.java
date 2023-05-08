@@ -35,10 +35,10 @@ public class UsersController extends HttpServlet {
 			String playerNum = (String)request.getParameter("num");
 			String id = (String) request.getParameter("id");
 			String pwd = (String) request.getParameter("pwd");
+			
 			UsersVO vo = dao.searchOne(playerNum, id, pwd);
 			HttpSession sess = request.getSession();
 			PrintWriter out = response.getWriter();
-			System.out.println("check"+vo);
 			
 			
 			if(vo == null) {
@@ -59,6 +59,7 @@ public class UsersController extends HttpServlet {
 				
 			}
 			
+			
 		} else if("/login".equals(action)) {
 			response.setContentType("text/html; charset=UTF-8");
 			HttpSession sess = request.getSession();
@@ -72,6 +73,5 @@ public class UsersController extends HttpServlet {
 			}
 		}
 		
-		dao.close();
 	}
 }
