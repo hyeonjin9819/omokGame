@@ -125,19 +125,55 @@ public class HistoryDAO {
 			pstmt.setInt(1, userId);
 			rs = pstmt.executeQuery();
 			
+			
 			if (rs.next()) {
 				int gamecnt  = rs.getInt("gamecnt");
 				int wincnt = rs.getInt("wincnt");
+				float winrate = wincnt/gamecnt*100;
 				vo.setPoint(rs.getInt("point"));
 				vo.setP1Name(rs.getString("nickname"));
 				vo.setGamecnt(rs.getInt("gamecnt"));
-				vo.setWinrate(gamecnt / wincnt);
+				vo.setWinrate(winrate);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {rs.close();} catch (Exception e) {}
 			try {pstmt.close();} catch (Exception e) {}
+		}
+		return vo;
+	}
+	
+	
+//	플레이어 목록 출력
+	public HistoryVO selectList(String searchName) {
+		HistoryVO vo = new HistoryVO ();
+		try {
+			con = dataFactory.getConnection();
+			String query = "select * from users where nickname = '"+searchName+"'";
+////			String query = "select * from history";
+////			if ( searchName != null && !"".equals(searchName)) {
+////				query += " where name like '%"+searchName+"%' ";
+////			}
+			System.out.println(query);
+			pstmt = con.prepareStatement(query);
+			rs = pstmt.executeQuery();
+			
+			rs.next();
+			vo.setUserName(rs.getString("nickname"));
+			vo.setGamecnt(rs.getInt("gamecnt"));
+			vo.setUserno(rs.getInt("usersid"));
+			int total = rs.getInt("gamecnt");
+			int winno = rs.getInt("wincnt");
+			double winrate = ((double) total / winno) * 100;
+			vo.setWinrate(winrate);
+			vo.setPoint(rs.getInt("point"));
+					
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {rs.close();}catch(Exception e) {};
+			try {pstmt.close();}catch(Exception e) {};
 		}
 		return vo;
 	}

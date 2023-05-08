@@ -66,9 +66,9 @@ public class UsersController extends HttpServlet {
 			if(sess.getAttribute("user1") != null && sess.getAttribute("user2") != null) {	
 				System.out.println("login" + sess.getAttribute("user1"));
 				System.out.println("login" +sess.getAttribute("user2"));
-				response.sendRedirect("/omokGame/index.jsp");
+				response.sendRedirect("/omokGame/main.do");
 			} else {
-				response.getWriter().print("<script>alert('잘못된 접근입니다.'); "
+				response.getWriter().print("<script>alert('�옒紐삳맂 �젒洹쇱엯�땲�떎.'); "
 						+ "location.href = '/omokGame/users/start';</script>");
 			}
 		}
