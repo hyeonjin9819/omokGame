@@ -21,6 +21,10 @@
     justify-content: space-around;
 }
 
+.btnEvent{
+	background-color:transparent;
+}
+
 
 .userExplain{
     margin: 10px;

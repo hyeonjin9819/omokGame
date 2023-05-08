@@ -14,7 +14,7 @@ import org.json.simple.JSONObject;
 
 
 
-@WebServlet("*.do")
+@WebServlet("*.do") 
 public class HistoryController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -34,21 +34,25 @@ public class HistoryController extends HttpServlet {
 	private void process(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = req.getRequestURI().substring(req.getContextPath().length());
 		
+		//String action = req.getPathInfo();
+		
 		String page= "";
-		if("/history/index.do".equals(url)) { // 파라미터로 받을까??
+		if("/history/index.do".equals(url)) { // �뙆�씪誘명꽣濡� 諛쏆쓣源�??
+			System.out.println("서블릿체크");
 			HistoryDAO dao = new HistoryDAO();
-			int user = Integer.parseInt(req.getParameter("user"));
-				
-			HistoryVO vo = dao.getUserInfo(user); // 1은 넘겨올 유저 (pk) -> 아마 세션에 저장// 차후 변수 수정 필요 
-			String filter = req.getParameter("filter");	
+			//int user = Integer.parseInt(req.getParameter("user"));
+			int user = 1;
+			System.out.println(1);	
+			HistoryVO vo = dao.getUserInfo(user); // 1�� �꽆寃⑥삱 �쑀�� (pk) -> �븘留� �꽭�뀡�뿉 ���옣// 李⑦썑 蹂��닔 �닔�젙 �븘�슂 			
+			
+			//String filter = req.getParameter("filter");	
+			String filter = "all";
 			
 //			System.out.println("filter: "+ filter);
 			
-			req.setAttribute("tableList", dao.getHistoryList(user, filter)); // all은 임의로 들어간 것
+			req.setAttribute("tableList", dao.getHistoryList(user, filter)); // all�� �엫�쓽濡� �뱾�뼱媛� 寃�
 			req.setAttribute("data", vo);
 					
-			
-			
 			page = "/WEB-INF/view/history/history.jsp";
 		}
 		

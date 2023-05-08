@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/history.css">
     <title>history</title>
-     <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
     <script>
@@ -28,6 +27,11 @@
      function findUser(id){
     	 
      }
+     
+     function back() {
+    	 window.history.back();
+     }
+
     
 	</script>
 	
@@ -37,7 +41,11 @@
 
 <body class="wrap">
     <div class="borderbox">
-        <img src = "${pageContext.request.contextPath}/resources/imgs/back.png"> 
+    <div>
+    	<button type="button" id="btnEvent" class="btnEvent" style="background-color:transparent; border: none;" onclick=back()>
+        	<img src = "${pageContext.request.contextPath}/resources/imgs/back.png" alt="btnImages"> 
+        </button>
+        </div>
         <div class="userExplain">
            <br>
             <div class="userDetail">
@@ -63,12 +71,13 @@
 			  <div id='result'></div>
 			  <div> -->
              </div>
-              <div>
+             
+<!--               <div>
              	<button id ="all" onClick=historyFilter(id) value="all">All</button>
              	<button id ="win" onClick=historyFilter(id) value="win">WIN</button>
              	<button id="defeat" onClick=historyFilter(id) value="defeat">DEFEAT</button>
-             	
-             </div>
+             </div> -->
+             
             <table class="historyTable">
                 <tr id = "title">
                     <th>IDX</th>

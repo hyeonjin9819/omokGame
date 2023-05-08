@@ -7,33 +7,43 @@ import java.sql.ResultSet;
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class HistoryDAO {
 	private PreparedStatement pstmt, pstmt2;
 	private Connection con;
 	ResultSet rs, rs2;
-	private DataSource dataFactory; // 나중에 오라클으로 바꾸면 필요함 
+	private DataSource dataFactory; // �굹以묒뿉 �삤�씪�겢�쑝濡� 諛붽씀硫� �븘�슂�븿 
 	
 	public HistoryDAO() {
-		try { // 일단은 mysql로 연결
-			String DB_URL = "jdbc:mysql://localhost:3306/omok";
-				
-			String USERNAME = "root"; // DB ID
-			String PASSWORD = "1234"; // DB Password
-			String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // jdbc 드라이버 주소
-			Class.forName(JDBC_DRIVER);
-			con = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try { // �씪�떒�� mysql濡� �뿰寃�
+//			String DB_URL = "jdbc:mysql://localhost:3306/omok";
+//				
+//			String USERNAME = "root"; // DB ID
+//			String PASSWORD = "1234"; // DB Password
+//			String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // jdbc �뱶�씪�씠踰� 二쇱냼
+//			Class.forName(JDBC_DRIVER);
+//			con = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+		
+	      try {
+	          Context ctx = new InitialContext();
+	          Context envContext = (Context) ctx.lookup("java:/comp/env");
+	          dataFactory = (DataSource) envContext.lookup("jdbc/oracle");
+	       } catch (Exception e) {
+	          e.printStackTrace();
+	       }
 
 	}
 	
 	public String findName(int id) {
 		String name = "";
 		try {
-			String query = "select nickname from users where _id = ?";
+			String query = "select nickname from users where usersid = ?";
 			pstmt2 = con.prepareStatement(query);
 			pstmt2.setInt(1, id);
 			rs2 = pstmt2.executeQuery();
@@ -42,16 +52,19 @@ public class HistoryDAO {
 			System.out.println(name);
 		}catch(Exception e) {
 			e.printStackTrace();
+		}finally {
+			try {rs2.close();}catch(Exception e) {};
+			try {pstmt2.close();}catch(Exception e) {};
 		}
 		return name;
 	}
 	
-	// 전적 리스트 
+	// �쟾�쟻 由ъ뒪�듃 
 	public List<HistoryVO> getHistoryList(int userId, String filter) {
 		List<HistoryVO> list = new ArrayList<HistoryVO>();
 		
 		try {
-			// 기본정렬 -> 최근 날짜순으로  
+			// 湲곕낯�젙�젹 -> 理쒓렐 �궇吏쒖닚�쑝濡�  
 			//String query = "select * from games where (user1 = ? OR user2 =?) ORDER BY gameDate DESC";
 			String query = "select * from games where (user1 = ? OR user2 =?)";
 			if("win".equals(filter)) {
@@ -69,19 +82,18 @@ public class HistoryDAO {
 			pstmt.setInt(1, userId);
 			pstmt.setInt(2, userId);
 			
-			// all이 아닐때만 값이 필요함
+			// all�씠 �븘�땺�븣留� 媛믪씠 �븘�슂�븿
 			if (!"all".equals(filter)) {
 				pstmt.setInt(3, userId);
 			}
 
-			
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
 				HistoryVO vo = new HistoryVO();
-				vo.setGameIndex(rs.getInt("_id"));
+				vo.setGameIndex(rs.getInt("gamesid"));
 				vo.setDate(rs.getDate("gameDate"));
-				vo.setMode(rs.getString("mode"));
+				vo.setMode(rs.getString("gamemode"));
 				int p1Id = rs.getInt("user1");
 				int p2Id = rs.getInt("user2");
 				int winnerId = rs.getInt("winner");
@@ -101,12 +113,13 @@ public class HistoryDAO {
 		return list;
 	}
 	
-	//전적테이블 유저 정보 
+	//�쟾�쟻�뀒�씠釉� �쑀�� �젙蹂� 
 	public HistoryVO getUserInfo(int userId) {
 		
 		HistoryVO vo = new HistoryVO();
 		try {
-			String query = "select * from users where _id = ?";
+			con = dataFactory.getConnection();
+			String query = "select * from users where USERSID = ?";
 			pstmt = con.prepareStatement(query);
 			System.out.println(query);
 			pstmt.setInt(1, userId);
@@ -128,10 +141,6 @@ public class HistoryDAO {
 		}
 		return vo;
 	}
-	
-	
-	
-	
-	
+
 
 }
