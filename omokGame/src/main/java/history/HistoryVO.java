@@ -18,4 +18,6 @@ public class HistoryVO {
 	   private double winrate; 
 	   private int gamecnt; 
 	   private String mode;
+	   
+	   private int totalPage; // 전적 테이블 페이지 처리를 위한 변수 (전체 계산) 
 }

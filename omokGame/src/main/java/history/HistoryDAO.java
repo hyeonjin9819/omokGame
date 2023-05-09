@@ -88,6 +88,7 @@ public class HistoryDAO {
 			}
 
 			rs = pstmt.executeQuery();
+			
 
 			while(rs.next()) {
 				HistoryVO vo = new HistoryVO();
@@ -129,7 +130,7 @@ public class HistoryDAO {
 			if (rs.next()) {
 				int gamecnt  = rs.getInt("gamecnt");
 				int wincnt = rs.getInt("wincnt");
-				float winrate = wincnt/gamecnt*100;
+				double winrate = ( ((double)wincnt / (double)gamecnt) * 100);
 				vo.setPoint(rs.getInt("point"));
 				vo.setP1Name(rs.getString("nickname"));
 				vo.setGamecnt(rs.getInt("gamecnt"));
@@ -165,7 +166,7 @@ public class HistoryDAO {
 			vo.setUserno(rs.getInt("usersid"));
 			int total = rs.getInt("gamecnt");
 			int winno = rs.getInt("wincnt");
-			double winrate = ((double) total / winno) * 100;
+			double winrate = ( ((double)winno / (double)total) * 100);
 			vo.setWinrate(winrate);
 			vo.setPoint(rs.getInt("point"));
 					

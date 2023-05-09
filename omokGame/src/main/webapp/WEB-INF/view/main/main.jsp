@@ -14,10 +14,6 @@
 		location.href="${pageContext.request.contextPath}/history/index.do?user="+userno; //옆에 ?index=1 이 맞나?
 	}
 
-/* 	function view2() {
-		location.href="test.do?index=2"; // 위의 경우와 같이 ?index=2 맞나? 
-	} */
-	
 	function start() {
 		location.href="start.do"; // 아래 게임시작 버튼 start를 누를경우, 
 								//history1 서블릿으로 이동하여, 이 서블릿에서 start.do로 연결된다.
