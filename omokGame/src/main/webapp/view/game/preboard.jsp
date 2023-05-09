@@ -55,7 +55,7 @@ window.onload = function() {
   };
 
   function handleTransitionEnd() {
- 	 window.location.href = '/omokgame2/game/gamepage.do';
+ 	 window.location.href = '/omokGame/game/mode.do';
  	
  	
  }

@@ -2,6 +2,8 @@ package games;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,7 +42,7 @@ public class GamesController extends HttpServlet {
 			String player2 = (String)sess.getAttribute("player2");
 	
 		
-			response.sendRedirect("/omokgame2/view/game/boardview/omok.jsp");
+			response.sendRedirect("/omokGame/view/game/boardview/omok.jsp");
 		
 			
 		}
@@ -49,27 +51,66 @@ public class GamesController extends HttpServlet {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			HttpSession sess = request.getSession();
-			sess.setAttribute("player1", "tempplayerid1");
-			sess.setAttribute("player2", "tempplayerid2");	
+			/*
+			 * sess.setAttribute("player1", "tempplayerid1"); sess.setAttribute("player2",
+			 * "tempplayerid2");
+			 */
 			request.getRequestDispatcher("/view/game/preboard.jsp").forward(request, response);
 			
 			
 		}
+
 		
-		else if (path.equals("/game.do")) {
+		else if (path.equals("/map.do")) {
 			
-			HttpSession sess = request.getSession();
-			 	 	
-			System.out.println(sess.getAttribute("player1"));
-			System.out.println(sess.getAttribute("player2"));
-			System.out.println(request.getParameter("whowinsend"));
+
+			
+			response.sendRedirect("/omokGame/view/game/boardview/map.jsp");
 			
 			
 		}
 		
+		else if (path.equals("/mode.do")) {
+			
+
+			
+			response.sendRedirect("/omokGame/view/game/boardview/mode.jsp");
+			
+			
+		}
 		
+		else if (path.equals("/gameend.do")) {
+			GamesDAO dao = new GamesDAO();
+			GamesVO vo = new GamesVO();
+			HttpSession sess = request.getSession();
+			String p1 = (String)sess.getAttribute("player1");
+			String p2 = (String)sess.getAttribute("player2");
+	
+			
+			String whowin = request.getParameter("whowinsend");
+			String winner;
+			if (whowin.equals("blackwin")) {
+				winner = p1;
+				vo.setWinner(winner);
+				
+			} else if (whowin.equals("whitewin")) {
+				winner = p2;
+				vo.setWinner(winner);
+			}
+			Date from = new Date();
 		
-		 
+			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+			String to = transFormat.format(from);
+	
+			vo.setDate(to);
+			vo.setMode("default");
+			vo.setP1Name(p1);
+			vo.setP2Name(p2);
+			dao.insertrst(vo);
+
+		}
+
 	}
 
 }

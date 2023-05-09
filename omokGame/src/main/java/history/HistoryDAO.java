@@ -18,17 +18,7 @@ public class HistoryDAO {
 	private DataSource dataFactory; // �굹以묒뿉 �삤�씪�겢�쑝濡� 諛붽씀硫� �븘�슂�븿 
 	
 	public HistoryDAO() {
-//		try { // �씪�떒�� mysql濡� �뿰寃�
-//			String DB_URL = "jdbc:mysql://localhost:3306/omok";
-//				
-//			String USERNAME = "root"; // DB ID
-//			String PASSWORD = "1234"; // DB Password
-//			String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // jdbc �뱶�씪�씠踰� 二쇱냼
-//			Class.forName(JDBC_DRIVER);
-//			con = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+
 		
 	      try {
 	          Context ctx = new InitialContext();
@@ -64,8 +54,7 @@ public class HistoryDAO {
 		List<HistoryVO> list = new ArrayList<HistoryVO>();
 		
 		try {
-			// 湲곕낯�젙�젹 -> 理쒓렐 �궇吏쒖닚�쑝濡�  
-			//String query = "select * from games where (user1 = ? OR user2 =?) ORDER BY gameDate DESC";
+
 			String query = "select * from games where (user1 = ? OR user2 =?)";
 			if("win".equals(filter)) {
 				query += " AND winner = ?";

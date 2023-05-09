@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  
-<%-- <% 
+<%
 String player1 = (String)session.getAttribute("player1"); 
 String player2 = (String)session.getAttribute("player2"); 
-%> --%>
+%> 
 
 <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@ String player2 = (String)session.getAttribute("player2");
     <link rel="stylesheet" href="omok.css?after">
 </head>
 <body>
-<%-- <p>${player1 }${player2 }</p> --%>
+<p>${player1 }${player2 }</p>
  <div class="realwrap">
  <div class="blakcout" id = "blakcout">   </div>
  <div class="blackin" id = "blackin">   </div>      
@@ -876,13 +876,19 @@ String player2 = (String)session.getAttribute("player2");
 			}
     	}
         }
+/*         
+        
+        GamesDAO dao = new GamesDAO();
+		GamesVO vo = new GamesVO();
+		String whowin = request.getParameter("whowinsend");
+		System.out.println("이거 지금테스트함 : " + whowin); */
   
         function ajax(whowin) {
         	var xhr = new XMLHttpRequest(); //XMLHttpRequest객체 생성
 /*         	var blackplayer = player1;
         	var whiteplayer = player2; */
         	var whowinsend = whowin;
-        	var url = '/omokgame2/game/game.do?whowinsend=' + whowinsend; /* + '&whiteplayer=' + whiteplayer + '&whowinsend=' + whowinsend; */
+        	var url = '/omokGame/game/gameend.do?whowinsend=' + whowinsend;
         	xhr.open('GET', url, true); //open(방식,url,비동기(true)동기(false))
         	xhr.send();//전송임
         	xhr.onload = () => {
@@ -941,7 +947,7 @@ String player2 = (String)session.getAttribute("player2");
 
 		}
         function handleTransitionEnd() {
-        	 window.location.href = '/omokgame2/game/preboard.do';
+        	 window.location.href = '/omokGame/game/preboard.do';
         	
         	
         }

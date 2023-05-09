@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -40,6 +41,8 @@ public class HistoryController extends HttpServlet {
 		if("/history/index.do".equals(url)) { // �뙆�씪誘명꽣濡� 諛쏆쓣源�??
 			System.out.println("서블릿체크");
 			HistoryDAO dao = new HistoryDAO();
+			
+			HttpSession sess = request.getSession();
 			//int user = Integer.parseInt(req.getParameter("user"));
 			int user = 1;
 			System.out.println(1);	

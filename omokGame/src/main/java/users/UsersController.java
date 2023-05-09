@@ -50,23 +50,24 @@ public class UsersController extends HttpServlet {
 						out.print("dupli");
 					} else {
 						sess.setAttribute("user"+cnt, vo);
+						sess.setAttribute("player2", vo.getId());
 						out.print("true");
 					}
 				} else {
 					sess.setAttribute("user"+cnt, vo);
+					sess.setAttribute("player1", vo.getId());
 					out.print("true");
 				}
 				
 			}
-			
-			
+
 		} else if("/login".equals(action)) {
 			response.setContentType("text/html; charset=UTF-8");
 			HttpSession sess = request.getSession();
 			if(sess.getAttribute("user1") != null && sess.getAttribute("user2") != null) {	
 				System.out.println("login" + sess.getAttribute("user1"));
 				System.out.println("login" +sess.getAttribute("user2"));
-				response.sendRedirect("/omokGame/index.jsp");
+				response.sendRedirect("/omokGame/game//preboard.do");
 			} else {
 				response.getWriter().print("<script>alert('잘못된 접근입니다.'); "
 						+ "location.href = '/omokGame/users/start';</script>");

@@ -1,0 +1,97 @@
+.wrap{
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	background-color: black;
+	box-sizing: border-box;
+	position: relative;
+	}
+.main{
+	width: 1017px;
+	height: 709px;
+	position: absolute;
+	top: 185px;
+	left: 452px;
+	border: 20px solid #1499F8;
+	border-radius: 30px;
+	background-color: #8a8a8a;
+	}
+.title{
+	width: 230px;
+	height: 120px;
+	border-bottom: 10px solid white;
+	box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.20);
+	margin-top: 68px;
+	margin-left: 98px;
+	margin-bottom: 12px;
+	}
+.title > p{
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 800;
+	font-size: 96px;
+	line-height: 116px;
+	text-align: center;
+	color: white;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.visual{
+	width: 979px;
+	height: 425px;
+	background: rgba(32, 32, 32, 0.29);
+	}
+.swiper {
+	width: 100%;
+	height: 100%;
+}
+.swiper-wrapper{
+	margin-top: 39px;
+	display: flex;
+	gap: 50px;
+	margin-left: -160px;
+	}
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	justify-content: center;
+	align-items: center;
+	width: 402px;
+	height: 352px;
+	border: 20px solid black;
+	border-radius: 20px;
+	position: relative;
+	cursor: pointer;
+	transition: all 0.2s linear;
+}
+.swiper-slide:hover{
+	transform: scale(1.1);
+}
+.swiper-slide img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+.place{
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 80px;
+	line-height: 97px;
+	text-align: center;
+	color: #FFFFFF;
+	position: absolute;
+	bottom: 14px;
+	left: 50px;
+	-webkit-text-stroke: black;
+	-webkit-text-stroke-width: 5px;
+}
+.kiwon{
+	left: 82px;
+}
+
+.naengdonggo {
+	font-size: 47px;
+	-webkit-text-stroke-width: 3px;
+}

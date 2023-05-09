@@ -28,6 +28,10 @@ public class UsersDAO {
 	
 	// 로그인을 위한 회원체크
 	public UsersVO searchOne(String playerNum, String id, String pwd) {
+		System.out.println("usercall");
+		System.out.println(id);
+		System.out.println(pwd);
+		System.out.println(playerNum);
 		UsersVO vo = null;
 		try {
 			con = dataFactory.getConnection();
