@@ -31,14 +31,14 @@
 </script>
 </head>
 <body>
-
+<div class="package">
 	<div class="whole">
       <div class="rectP">
         <div class="rect1">
           <div class="player1">1P</div>
           
           <button type="button" id="btnEvent" class="btnEvent" style="background-color: black; border: none; cursor:pointer;" onclick="view(${user1.userno})">
-        	<img src="${pageContext.request.contextPath}/resources/imgs/Group 25.png" class="Group25" />
+        	<img src="${pageContext.request.contextPath}/resources/imgs/Group 27.png" class="Group27" />
         </button>
           
           <img src="${pageContext.request.contextPath}/resources/imgs/3.png" class="img3" />
@@ -51,7 +51,7 @@
           <div class="player2">2P</div>
           
          <button type="button" id="btnEvent" class="btnEvent" style="background-color:black; border: none; cursor:pointer;" onclick="view(${user2.userno})">
-        	<img src="${pageContext.request.contextPath}/resources/imgs/Group 27.png" class="Group27" />
+        	<img src="${pageContext.request.contextPath}/resources/imgs/Group 25.png" class="Group25" />
         </button>
           
 		  <img src="${pageContext.request.contextPath}/resources/imgs/3.png" class="img6" />
@@ -68,6 +68,6 @@
         <div class="exit" onclick="exit()" style="cursor:pointer">EXIT</div>
       </div>
     </div>
-	
+</div>	
 </body>
 </html>

@@ -1,10 +1,14 @@
+.package {
+  background-color: #444341;
+  height: 100vh;
+}
+
 .whole {
   position: relative;
   width: 1920px;
   height: 1080px;
-
   background-color: #444341;
-  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
 
   margin: auto;
 }
@@ -41,9 +45,10 @@
   position: absolute;
   width: 97.33px;
   height: 64.15px;
-  left: 462.38px;
+  right: 500.38px;
   top: 70.85px;
-  background: #1499f8;
+
+  background: black;
 }
 
 /* .img2 {
@@ -61,7 +66,7 @@
 .coin1 {
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: 50px;
   line-height: 77px;
   color: #ffffff;
 }
@@ -139,10 +144,9 @@
   position: absolute;
   width: 97.33px;
   height: 64.15px;
-  right: 500.38px;
+  left: 462.38px;
   top: 70.85px;
-
-  background: #db65e1;
+  background: black;
 }
 
 /* .img5 {
@@ -161,7 +165,7 @@
 .coin2 {
   font-style: normal;
   font-weight: 800;
-  font-size: 64px;
+  font-size: 50px;
   line-height: 77px;
   color: #ffffff;
 }
