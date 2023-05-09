@@ -15,7 +15,7 @@
 	}
 
 	function start() {
-		location.href="start.do"; // 아래 게임시작 버튼 start를 누를경우, 
+		location.href="${pageContext.request.contextPath}/game/mode.do"; // 아래 게임시작 버튼 start를 누를경우, 
 								//history1 서블릿으로 이동하여, 이 서블릿에서 start.do로 연결된다.
 	}
 	
