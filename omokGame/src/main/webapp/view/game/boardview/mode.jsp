@@ -29,7 +29,7 @@
                  </div>
                  <div class="swiper-slide event">
                     <p>EVENT MODE</p>
-                    <img src="images/free-icon-locked-padlock-61457 1.png" alt="rock">
+                    <img src="${pageContext.request.contextPath}/images/free-icon-locked-padlock-61457.png" alt="rock">
                     
                  </div>
             </div>
@@ -40,5 +40,15 @@
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/mode.js"></script>
+<script>
+var swiper = new Swiper(".mySwiper", {
+	  slidesPerView: 2.400489,
+	  spaceBetween: 10,
+	  centeredSlides: true,
+	  pagination: {
+	    el: ".swiper-pagination",
+	    clickable: true,
+	  },
+	});
+</script>
 </html>

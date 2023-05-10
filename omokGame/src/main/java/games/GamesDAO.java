@@ -34,32 +34,33 @@ public class GamesDAO {
 	
 	
 	public void insertrst(GamesVO vo) {
-	
-		
-		
-		try {
-			con = dataFactory.getConnection();
-			String query2 = "INSERT INTO games(user1,user2,winner,gamedate,gamemode,gamesid) VALUES (?,?,?,?,?,games_seq.NEXTVAL)";
-			pstmt = con.prepareStatement(query2);
-			pstmt.setString(1, vo.getP1Name());
-			pstmt.setString(2, vo.getP2Name());
-			pstmt.setString(3, vo.getWinner());
-			pstmt.setString(4, vo.getDate());
-			pstmt.setString(5, vo.getMode());
-		
-			int r = pstmt.executeUpdate();
-		
-			pstmt.close();
-		
-			
-			
-		} catch(Exception e) {
-			e.printStackTrace();
-	
-		}
-		
-	
-		
+	    try {
+	        con = dataFactory.getConnection();
+	        String query2 = "INSERT INTO games(user1,user2,winner,gamedate,gamemode,gamesid) VALUES (?,?,?,?,?,games_seq.NEXTVAL)";
+	        pstmt = con.prepareStatement(query2);
+	        pstmt.setString(1, vo.getP1Name());
+	        pstmt.setString(2, vo.getP2Name());
+	        pstmt.setString(3, vo.getWinner());
+	        pstmt.setString(4, vo.getDate());
+	        pstmt.setString(5, vo.getMode());
+
+	        int r = pstmt.executeUpdate();
+
+	    } catch(Exception e) {
+	        e.printStackTrace();
+	    } finally {
+	        try {
+	            if (pstmt != null) pstmt.close();
+	        } catch(Exception e) {
+	            e.printStackTrace();
+	        }
+
+	        try {
+	            if (con != null) con.close();
+	        } catch(Exception e) {
+	            e.printStackTrace();
+	        }
+	    }
 	}
 	
 

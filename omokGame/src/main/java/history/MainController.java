@@ -32,7 +32,7 @@ public class MainController extends HttpServlet {
 
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//Âü°í¿ë
+		//ï¿½ï¿½ï¿½ï¿½ï¿½
 		//sess.setAttribute("loginSess", vo);
 		//MemberVO mvo = (MemberVO)sess.getAttribute("loginSess");
 		
@@ -45,6 +45,10 @@ public class MainController extends HttpServlet {
 			
 			UsersVO uvo1 = (UsersVO) sess.getAttribute("user1");
 			UsersVO uvo2 = (UsersVO) sess.getAttribute("user2");
+			
+			System.out.println("0509test : " + uvo1);
+			System.out.println("0509test : " + uvo2);
+
 			
 			if("1".equals(uvo1.getPlayerNum())) {
 				HistoryVO vo1 = dao.selectList(uvo1.getNickname()); 
@@ -66,19 +70,19 @@ public class MainController extends HttpServlet {
 			
 		//} 
 //		else if ("/mini/test.do".equals(url1)) { 
-//			//¾Õ¼­ history.jsp¿¡¼­ ÇÃ·¹ÀÌ¾î1ÀÌ³ª ÇÃ·¹ÀÌ¾î2¸¦ Å¬¸¯ÇßÀ»¶§ test.do·Î ¿¬°áµÇ°í, 
-//			// ¿©±â¼­, Å¬¸¯µÈ ÇÃ·¹ÀÌ¾îÀÇ ¸Þ¼­µå¸¦ ½ÇÇàÇÏ¿© ÀÌ ¸Þ¼­µåÀÇ µ¥ÀÌÅÍÅ¸ÀÔ¿¡ ÇØ´çÇÏ´Â °ÍÀ» ¸®ÅÏ¹Þ´Â´Ù.
-//			// ±× ¸®ÅÏ¹ÞÀº°ÍÀ» ÀúÀåÇÏ¿©, ÇØ´ç jsp·Î ÀÌµ¿ÇÏ°Ô µÈ´Ù.
-//			// ¹æ±Ý ¾ð±ÞÇÑ ÇØ´ç jsp¿¡¼­ ÀÌÀü¹öÆ°À» Å¬¸¯ÇÏ¸é ´Ù½Ã À§ÀÇ history.do·Î °¬´Ù°¡ 
-//			// history.jsp·Î ¿¬°áµÈ´Ù.
+//			//ï¿½Õ¼ï¿½ history.jspï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½1ï¿½Ì³ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½2ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ test.doï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç°ï¿½, 
+//			// ï¿½ï¿½ï¿½â¼­, Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å¸ï¿½Ô¿ï¿½ ï¿½Ø´ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¹Þ´Â´ï¿½.
+//			// ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½, ï¿½Ø´ï¿½ jspï¿½ï¿½ ï¿½Ìµï¿½ï¿½Ï°ï¿½ ï¿½È´ï¿½.
+//			// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ jspï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ°ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ history.doï¿½ï¿½ ï¿½ï¿½ï¿½Ù°ï¿½ 
+//			// history.jspï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 //			
 //			
 //			request.getRequestDispatcher("/WEB-INF/history/test1.jsp").forward(request, response);
 //		} else if ("/mini/start.do".equals(url1)) {
-//			// ¿©±â¿¡¼­ °ÔÀÓ½ÃÀÛ È­¸éÀ¸·Î ³Ñ¾î°¡´Â ·ÎÁ÷ÀÌ ½ÇÇàµÈ´Ù.
+//			// ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 //			
 //		} else if ("/mini/exit.do".equals(url1)) {
-//			// ¿©±â¿¡¼­ ³ª°¡±â È­¸éÀ¸·Î ³Ñ¾î°¡´Â ·ÎÁ÷ÀÌ ½ÇÇàµÈ´Ù.
+//			// ï¿½ï¿½ï¿½â¿¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 //		}
 //		
 		

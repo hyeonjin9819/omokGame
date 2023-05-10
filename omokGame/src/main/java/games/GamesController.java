@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import users.UsersVO;
+
 
 
 
@@ -37,9 +39,11 @@ public class GamesController extends HttpServlet {
 		
 		if(path.equals("/gamepage.do")) {
 			System.out.println("gamecall");
-			HttpSession sess = request.getSession();
-			String player1 = (String)sess.getAttribute("player1");
-			String player2 = (String)sess.getAttribute("player2");
+			/*
+			 * HttpSession sess = request.getSession(); String user1 =
+			 * (String)sess.getAttribute("user1"); String user2 =
+			 * (String)sess.getAttribute("user2");
+			 */
 	
 		
 			response.sendRedirect("/omokGame/view/game/boardview/omok.jsp");
@@ -70,18 +74,19 @@ public class GamesController extends HttpServlet {
 			GamesDAO dao = new GamesDAO();
 			GamesVO vo = new GamesVO();
 			HttpSession sess = request.getSession();
-			String p1 = (String)sess.getAttribute("player1");
-			String p2 = (String)sess.getAttribute("player2");
+			UsersVO p1 = (UsersVO)sess.getAttribute("user1");
+			UsersVO p2 = (UsersVO)sess.getAttribute("user2");
+
 	
 			
 			String whowin = request.getParameter("whowinsend");
 			String winner;
 			if (whowin.equals("blackwin")) {
-				winner = p1;
+				winner = p1.getId();
 				vo.setWinner(winner);
 				
 			} else if (whowin.equals("whitewin")) {
-				winner = p2;
+				winner = p2.getId();
 				vo.setWinner(winner);
 			}
 			Date from = new Date();
@@ -92,8 +97,8 @@ public class GamesController extends HttpServlet {
 	
 			vo.setDate(to);
 			vo.setMode("default");
-			vo.setP1Name(p1);
-			vo.setP2Name(p2);
+			vo.setP1Name(p1.getId());
+			vo.setP2Name(p2.getId());
 			dao.insertrst(vo);
 
 		}
