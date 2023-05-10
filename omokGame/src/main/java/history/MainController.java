@@ -32,7 +32,6 @@ public class MainController extends HttpServlet {
 
 	public void process(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//�����
 		//sess.setAttribute("loginSess", vo);
 		//MemberVO mvo = (MemberVO)sess.getAttribute("loginSess");
 		
@@ -65,26 +64,8 @@ public class MainController extends HttpServlet {
 			}
 			
 			
-			request.getRequestDispatcher("/WEB-INF/view/main/main.jsp").forward(request, response);
+			request.getRequestDispatcher("/view/main/main.jsp").forward(request, response);
 			
-			
-		//} 
-//		else if ("/mini/test.do".equals(url1)) { 
-//			//�ռ� history.jsp���� �÷��̾�1�̳� �÷��̾�2�� Ŭ�������� test.do�� ����ǰ�, 
-//			// ���⼭, Ŭ���� �÷��̾��� �޼��带 �����Ͽ� �� �޼����� ������Ÿ�Կ� �ش��ϴ� ���� ���Ϲ޴´�.
-//			// �� ���Ϲ������� �����Ͽ�, �ش� jsp�� �̵��ϰ� �ȴ�.
-//			// ��� ����� �ش� jsp���� ������ư�� Ŭ���ϸ� �ٽ� ���� history.do�� ���ٰ� 
-//			// history.jsp�� ����ȴ�.
-//			
-//			
-//			request.getRequestDispatcher("/WEB-INF/history/test1.jsp").forward(request, response);
-//		} else if ("/mini/start.do".equals(url1)) {
-//			// ���⿡�� ���ӽ��� ȭ������ �Ѿ�� ������ ����ȴ�.
-//			
-//		} else if ("/mini/exit.do".equals(url1)) {
-//			// ���⿡�� ������ ȭ������ �Ѿ�� ������ ����ȴ�.
-//		}
-//		
 		
 	}
 	

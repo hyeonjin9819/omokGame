@@ -63,7 +63,7 @@ public class HistoryController extends HttpServlet {
 			req.setAttribute("tableList", dao.getHistoryList(user, filter)); // all�� �엫�쓽濡� �뱾�뼱媛� 寃�
 			req.setAttribute("data", vo);
 					
-			page = "/WEB-INF/view/history/history.jsp";
+			page = "/view/history/history.jsp";
 		}
 		
 		

@@ -72,7 +72,7 @@
 	<div id="wrap">
 		<div id="header">
 			<img
-				src="${pageContext.request.contextPath}/view/login/image/mainLogo.png"
+				src="${pageContext.request.contextPath}/img/mainLogo.png"
 				alt="" />
 		</div>
 		<div id="loginForm">
@@ -97,7 +97,7 @@
 
 			<div id="center">
 				<img
-					src="${pageContext.request.contextPath}/view/login/image/VS.png"
+					src="${pageContext.request.contextPath}/img/VS.png"
 					width="200px" alt="" id="vsImg" />
 			</div>
 

@@ -29,7 +29,7 @@
                  </div>
                  <div class="swiper-slide event">
                     <p>EVENT MODE</p>
-                    <img src="${pageContext.request.contextPath}/images/free-icon-locked-padlock-61457.png" alt="rock">
+                    <img src="${pageContext.request.contextPath}/img/free-icon-locked-padlock-61457.png" alt="rock">
                     
                  </div>
             </div>

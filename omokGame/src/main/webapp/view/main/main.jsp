@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/resources/css/hisotory1.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
 <script>
 // rect1 클래스의 onclick 이벤트를 클릭하면 view1 함수 실행
 	function view(userno) {
@@ -34,10 +34,10 @@
           <div class="player1">1P</div>
           
           <button type="button" id="btnEvent" class="btnEvent" style="background-color: black; border: none; cursor:pointer;" onclick="view(${user1.userno})">
-        	<img src="${pageContext.request.contextPath}/resources/imgs/Group 27.png" class="Group27" />
+        	<img src="${pageContext.request.contextPath}/img/Group 27.png" class="Group27" />
         </button>
           
-          <img src="${pageContext.request.contextPath}/resources/imgs/3.png" class="img3" />
+          <img src="${pageContext.request.contextPath}/img/3.png" class="img3" />
           <div class="name1">NAME : ${user1.userName}</div>
           <div class="played1">PLAYED : ${user1.gamecnt} </div>
           <div class="winrate1">WINRATE : ${user1.winrate} %</div>
@@ -47,16 +47,16 @@
           <div class="player2">2P</div>
           
          <button type="button" id="btnEvent" class="btnEvent" style="background-color:black; border: none; cursor:pointer;" onclick="view(${user2.userno})">
-        	<img src="${pageContext.request.contextPath}/resources/imgs/Group 25.png" class="Group25" />
+        	<img src="${pageContext.request.contextPath}/img/Group 25.png" class="Group25" />
         </button>
           
-		  <img src="${pageContext.request.contextPath}/resources/imgs/3.png" class="img6" />
+		  <img src="${pageContext.request.contextPath}/img/3.png" class="img6" />
           <div class="name2">NAME : ${user2.userName}</div>
           <div class="played2">PLAYED : ${user2.gamecnt}</div>
           <div class="winrate2">WINRATE : ${user2.winrate}%</div>
           <div class="coin2">${user2.point} COIN</div>
         </div>
-        <img src="${pageContext.request.contextPath}/resources/imgs/6.png" class="img7" />
+        <img src="${pageContext.request.contextPath}/img/6.png" class="img7" />
         <div class="team2">MADE IN TEAM2</div>
         <div class="stbtn"></div>
         <div class="start" onclick="start()" style="cursor:pointer">START</div>

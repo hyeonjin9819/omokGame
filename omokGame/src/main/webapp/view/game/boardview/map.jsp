@@ -32,15 +32,15 @@ function gamepage() {
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide" onclick="gamepage()">
-                 <img src="${pageContext.request.contextPath}/images/topgol.png" alt="" >
+                 <img src="${pageContext.request.contextPath}/img/topgol.png" alt="" >
                 <p class="place">TOPGOL</p>
                 </div>
                 <div class="swiper-slide" onclick="gamepage()">
-                  <img src="${pageContext.request.contextPath}/images/kiwon.png" alt="">
+                  <img src="${pageContext.request.contextPath}/img/kiwon.png" alt="">
                  <p class="place kiwon">KIWON</p>
                  </div>
                  <div class="swiper-slide" onclick="gamepage()">
-                  <img src="${pageContext.request.contextPath}/images/naengdonggo.png" alt="">
+                  <img src="${pageContext.request.contextPath}/img/naengdonggo.png" alt="">
                  <p class="place naengdonggo">NAENGDONG</p>
                  </div>
             </div>
