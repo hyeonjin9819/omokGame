@@ -44,8 +44,10 @@ public class HistoryController extends HttpServlet {
 		if("/history/index.do".equals(url)) { // �뙆�씪誘명꽣濡� 諛쏆쓣源�??
 			System.out.println("서블릿체크");
 			System.out.println(sess.getAttribute("user1"));
-			UsersVO userVO = new UsersVO();
-			userVO = (UsersVO) sess.getAttribute("user1");
+			/*
+			 * UsersVO userVO = new UsersVO(); userVO = (UsersVO)
+			 * sess.getAttribute("user1");
+			 */
 			
 			
 			HistoryDAO dao = new HistoryDAO();

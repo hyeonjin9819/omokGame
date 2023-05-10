@@ -18,17 +18,7 @@ public class HistoryDAO {
 	private DataSource dataFactory; // �굹以묒뿉 �삤�씪�겢�쑝濡� 諛붽씀硫� �븘�슂�븿 
 	
 	public HistoryDAO() {
-//		try { // �씪�떒�� mysql濡� �뿰寃�
-//			String DB_URL = "jdbc:mysql://localhost:3306/omok";
-//				
-//			String USERNAME = "root"; // DB ID
-//			String PASSWORD = "1234"; // DB Password
-//			String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver"; // jdbc �뱶�씪�씠踰� 二쇱냼
-//			Class.forName(JDBC_DRIVER);
-//			con = DriverManager.getConnection(DB_URL, USERNAME, PASSWORD);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+
 		
 	      try {
 	          Context ctx = new InitialContext();
@@ -37,7 +27,7 @@ public class HistoryDAO {
 	       } catch (Exception e) {
 	          e.printStackTrace();
 	       }
-
+	      
 	}
 	
 	public String findName(int id) {
@@ -147,34 +137,34 @@ public class HistoryDAO {
 	
 	
 //	플레이어 목록 출력
+	// 0509 db안닫기는거 수정
 	public HistoryVO selectList(String searchName) {
+		System.out.println("isthiscall???");
 		HistoryVO vo = new HistoryVO ();
 		try {
 			con = dataFactory.getConnection();
-			String query = "select * from users where nickname = '"+searchName+"'";
-////			String query = "select * from history";
-////			if ( searchName != null && !"".equals(searchName)) {
-////				query += " where name like '%"+searchName+"%' ";
-////			}
-			System.out.println(query);
+			String query = "SELECT * FROM users WHERE nickname=?";
 			pstmt = con.prepareStatement(query);
+			pstmt.setString(1, searchName);
 			rs = pstmt.executeQuery();
 			
-			rs.next();
-			vo.setUserName(rs.getString("nickname"));
-			vo.setGamecnt(rs.getInt("gamecnt"));
-			vo.setUserno(rs.getInt("usersid"));
-			int total = rs.getInt("gamecnt");
-			int winno = rs.getInt("wincnt");
-			double winrate = ( ((double)winno / (double)total) * 100);
-			vo.setWinrate(winrate);
-			vo.setPoint(rs.getInt("point"));
+			if(rs.next()) {
+				vo.setUserName(rs.getString("nickname"));
+				vo.setGamecnt(rs.getInt("gamecnt"));
+				vo.setUserno(rs.getInt("usersid"));
+				int total = rs.getInt("gamecnt");
+				int winno = rs.getInt("wincnt");
+				double winrate = (((double)winno / (double)total) * 100);
+				vo.setWinrate(winrate);
+				vo.setPoint(rs.getInt("point"));
+			}
 					
 		} catch(Exception e) {
 			e.printStackTrace();
 		} finally {
-			try {rs.close();}catch(Exception e) {};
-			try {pstmt.close();}catch(Exception e) {};
+			try {rs.close();} catch(Exception e) {};
+			try {pstmt.close();} catch(Exception e) {};
+			try {con.close();} catch(Exception e) {};
 		}
 		return vo;
 	}

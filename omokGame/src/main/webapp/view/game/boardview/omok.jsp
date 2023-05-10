@@ -482,10 +482,10 @@ String player2 = (String)session.getAttribute("player2");
         <div class="itembox">
         
 
-            <img class = "panimg" src="../img/pan5.png">
+            <img class = "panimg" src="${pageContext.request.contextPath}/img/pan5.png">
             <div id = "blurblack">  </div>
-            <div id = "blackwin"><img src="../img/blackwin.png"></div>
-            <div id = "whitewin"><img src="../img/whitewin.png"></div>
+            <div id = "blackwin"><img src="${pageContext.request.contextPath}/img/blackwin.png"></div>
+            <div id = "whitewin"><img src="${pageContext.request.contextPath}/img/whitewin.png"></div>
         </div>
 
     </div>
@@ -503,13 +503,13 @@ String player2 = (String)session.getAttribute("player2");
             </div>
 
             <div class="turndollback">
-                <div><img id = "turndoll" src="../img/black.png"></div>
+                <div><img id = "turndoll" src="${pageContext.request.contextPath}/img/black.png"></div>
                 <p  onclick="undo()"  id = "undo" >무르기</p>
             </div>
 
         </div>
         
-	     <img class = "panshadow" src="../img/realshadow.png"> 
+	     <img class = "panshadow" src="${pageContext.request.contextPath}/img/realshadow.png"> 
 
 
        
@@ -639,13 +639,13 @@ String player2 = (String)session.getAttribute("player2");
 						  // src 속성 설정
 						  if (turn2 == 1) {
 
-							  img.src = '../img/black.png';
+							  img.src = '${pageContext.request.contextPath}/img/black.png';
   
 						  }
 						  
 						  else if (turn2 == 2) {
 
-							  img.src = '../img/white.png';
+							  img.src = '${pageContext.request.contextPath}/img/white.png';
 	  
 						  }
   
@@ -947,7 +947,7 @@ String player2 = (String)session.getAttribute("player2");
 
 		}
         function handleTransitionEnd() {
-        	 window.location.href = '/omokGame/game/preboard.do';
+        	 window.location.href = '/omokGame/main.do';
         	
         	
         }
@@ -955,11 +955,15 @@ String player2 = (String)session.getAttribute("player2");
         
         function closefunc() {
         	  // 클릭 이벤트 핸들러 등록을 지연시키기 위해 setTimeout 함수.
+      /*   	 window.location.href = '/omokGame/main.do'; */
         	  setTimeout(function() {
+        		  
+        		  
         	    document.addEventListener('click', function() {
         	       sessionStorage.clear();
         	       
         	       
+
         	       
         	       var blackin = document.querySelector(".blackin");
         	       blackin.style.opacity = 1;
@@ -976,7 +980,7 @@ String player2 = (String)session.getAttribute("player2");
                 // dup처리 포함
                 if (turn == 1 && e1.target.firstChild.src != "") { //만약 흑turn 이면서 둘곳이 빈자리가 아닐떄 
 
-                    document.getElementById('turndoll').src = '../img/white.png';  //턴 표시해주는 돌을 흑돌 이미지 표시해주고
+                    document.getElementById('turndoll').src = '${pageContext.request.contextPath}/img/white.png';  //턴 표시해주는 돌을 흑돌 이미지 표시해주고
                     
                     var nodes = [...e1.target.parentElement.children];  // 인덱스 관련 nodes변수에 이벤트 타겟 부모 요소 찾아가서 다시 자식요소들 list에 담기
                     var nodes2 = [...e1.target.parentElement.parentElement.parentElement.children]; // 상동 */
@@ -984,7 +988,7 @@ String player2 = (String)session.getAttribute("player2");
                     x = nodes2.indexOf(e1.target.parentElement.parentElement);
 
                     arr[x][y] = 1;
-                    e1.target.firstChild.src = '../img/black.png';   // 비어있는 img src에 흑돌이미지 경로 넣어주기
+                    e1.target.firstChild.src = '${pageContext.request.contextPath}/img/black.png';   // 비어있는 img src에 흑돌이미지 경로 넣어주기
 
                     iswin();
 
@@ -1030,13 +1034,13 @@ String player2 = (String)session.getAttribute("player2");
                 else if(turn==2 && e1.target.firstChild.src != ""){
                 	
                 	
-                    document.getElementById('turndoll').src = '../img/black.png';
+                    document.getElementById('turndoll').src = '${pageContext.request.contextPath}/img/black.png';
                     var nodes = [...e1.target.parentElement.children];
                     var nodes2 = [...e1.target.parentElement.parentElement.parentElement.children];
                     y = nodes.indexOf(e1.target);
                     x = nodes2.indexOf(e1.target.parentElement.parentElement);
                     arr[x][y] = 2;
-                    e1.target.firstChild.src = "../img/white.png";
+                    e1.target.firstChild.src = "${pageContext.request.contextPath}/img/white.png";
                     iswin();
              
                     /* doPass(x, y); */

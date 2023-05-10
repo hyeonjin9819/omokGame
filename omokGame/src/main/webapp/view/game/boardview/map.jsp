@@ -50,5 +50,15 @@ function gamepage() {
   </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/map.js"></script>
+<script>
+
+var swiper = new Swiper(".mySwiper", {
+	  slidesPerView: 2.400489,
+	  spaceBetween: 10,
+	  centeredSlides: true,
+	  pagination: {
+	    el: ".swiper-pagination",
+	    clickable: true,
+	  },
+	});</script>
 </html>
