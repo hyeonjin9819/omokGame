@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
- 
+	pageEncoding="UTF-8"%>
+
 <%
-String player1 = (String)session.getAttribute("player1"); 
-String player2 = (String)session.getAttribute("player2"); 
-%> 
+String player1 = (String) session.getAttribute("player1");
+String player2 = (String) session.getAttribute("player2");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -12,512 +12,523 @@ String player2 = (String)session.getAttribute("player2");
 <head>
 <meta charset="UTF-8">
 <title>omok1</title>
-    <link rel="stylesheet" href="reset.css" type="text/css">
-    <link rel="stylesheet" href="omok.css?after">
+<link rel="stylesheet" href="reset.css" type="text/css">
+<link rel="stylesheet" href="omok.css?after">
 </head>
 <body>
-<p>${player1 }${player2 }</p>
- <div class="realwrap">
- <div class="blakcout" id = "blakcout">   </div>
- <div class="blackin" id = "blackin">   </div>      
-    <div class="wrap">
-        
-        <div class="pan">
+	<p>${player1 }${player2 }</p>
+	<div class="realwrap">
+		<div class="blakcout" id="blakcout"></div>
+		<div class="blackin" id="blackin"></div>
+		<div class="wrap">
 
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-          
-            </ul>
-        </div>
-        <div class="pan">
-            <ul class="x">
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-                <li ><img src=""></li>
-            </ul>
-        </div>
-<!--   -->
-		
-        <div class="itembox">
-        
+			<div class="pan">
 
-            <img class = "panimg" src="${pageContext.request.contextPath}/img/pan5.png">
-            <div id = "blurblack">  </div>
-            <div id = "blackwin"><img src="${pageContext.request.contextPath}/img/blackwin.png"></div>
-            <div id = "whitewin"><img src="${pageContext.request.contextPath}/img/whitewin.png"></div>
-        </div>
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
 
-    </div>
-    
-    
-    
-        <div class="sub">
-        
-            <div class="timer">
-                <div id="blacktimer"></div>
-                <div id="whitetimer"></div>
-            </div>
-            <div class="logbox" id="logbox">   
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
 
-            </div>
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
 
-            <div class="turndollback">
-                <div><img id = "turndoll" src="${pageContext.request.contextPath}/img/black.png"></div>
-                <p  onclick="undo()"  id = "undo" >무르기</p>
-            </div>
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
 
-        </div>
-        
-	     <img class = "panshadow" src="${pageContext.request.contextPath}/img/realshadow.png"> 
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+
+				</ul>
+			</div>
+			<div class="pan">
+				<ul class="x">
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+					<li><img src=""></li>
+				</ul>
+			</div>
+			<!--   -->
+
+			<div class="itembox">
 
 
-       
-       
-</div>
+				<img class="panimg"
+					src="${pageContext.request.contextPath}/img/pan5.png">
+				<div id="blurblack"></div>
+				<div id="blackwin">
+					<img src="${pageContext.request.contextPath}/img/blackwin.png">
+				</div>
+				<div id="whitewin">
+					<img src="${pageContext.request.contextPath}/img/whitewin.png">
+				</div>
+				<div id="warning">
+					<div id="countdown"></div>
+					<img src="img/warning.png">
+				</div>
+			</div>
+
+		</div>
 
 
-    <script>
+
+		<div class="sub">
+
+			<div class="timer">
+				<div id="blacktimer"></div>
+				<div id="whitetimer"></div>
+			</div>
+			<div class="logbox" id="logbox"></div>
+
+			<div class="turndollback">
+				<div>
+					<img id="turndoll"
+						src="${pageContext.request.contextPath}/img/black.png">
+				</div>
+				<p onclick="undo()" id="undo">무르기</p>
+			</div>
+
+		</div>
+
+		<img class="panshadow"
+			src="${pageContext.request.contextPath}/img/realshadow.png">
+
+
+
+
+	</div>
+
+
+	<script>
 /*     var arr; */
 
     	var arr;
@@ -709,6 +720,66 @@ String player2 = (String)session.getAttribute("player2");
 	
     	}
     	
+    	//이벤트 모드
+    	
+    	
+    	var jagiNum = 1;
+    	var imgName = "img/5Mz4.gif";
+    	
+    	
+        var jagi = setInterval(function(){
+        	var audio1 = new Audio('img/fire.mp3');
+			audio1.loop = false;
+			audio1.volume = 0.4;
+			audio1.play();
+        	var warningN = 10;
+        	
+        	document.getElementById('warning').style.display = 'none';
+        	//강풍 메세지 가리기
+			var warning = setTimeout(function(){ // 5초뒤 강풍메세지 나오기
+				var audio2 = new Audio('img/wind.mp3');
+				audio2.loop = false;
+				audio2.volume = 0.2;
+    			document.getElementById('warning').style.display = 'block';
+				audio2.play();
+				setTimeout(function(){
+					audio2.pause();
+				}, 5000)
+    		}, 5000)
+    		
+        	var cntdown = setInterval(function(){
+        		warningN--;
+        		if(warningN <6){
+    				document.getElementById('countdown').innerHTML = warningN;
+    				if(warningN == 0){
+        				clearInterval(cntdown);
+        			}
+        		}
+    		}, 1000)
+    		
+             var chLine1 = document.querySelector('.pan:nth-child('+jagiNum+') > .x').querySelectorAll("li");
+             for (var i = 0; i < chLine1.length; i++) {
+                chLine1[i].querySelector("img").src=imgName;
+                arr[jagiNum-1][i] = 3;
+                }
+             var chLine2 = document.querySelector('.pan:nth-child('+(20-jagiNum)+') > .x').querySelectorAll("li");
+             for (var i = 0; i < chLine2.length; i++) {
+                chLine2[i].querySelector("img").src=imgName;
+                arr[19-jagiNum][i] = 3;
+                }
+          	for(var i = jagiNum+1; i<(20-jagiNum); i++){
+            	 document.querySelector('.pan:nth-child('+i+') > .x').querySelector('li:nth-child('+jagiNum+') > img').src=imgName;
+             	document.querySelector('.pan:nth-child('+i+') > .x').querySelector('li:nth-child('+(20-jagiNum)+') > img').src=imgName;
+             	arr[i-1][jagiNum-1] = 3;
+             	arr[i-1][19-jagiNum] = 3;
+          	}
+             console.log(jagiNum);
+             jagiNum++;
+             
+             if(jagiNum == 8){
+                clearInterval(jagi);
+             }
+        }, 10000)
     	
     	//timer
     	
@@ -1086,7 +1157,7 @@ String player2 = (String)session.getAttribute("player2");
         })
 
     </script>
-    
+
 
 
 </body>
