@@ -77,7 +77,7 @@ img {
     text-align: center;
     align-items: flex-start;
     margin-top: 145px;
-
+    position:relative;
 }
 
 .historyTable{
@@ -106,6 +106,13 @@ img {
 .historyPage {
     text-align: center;
     margin: 0 auto;;
+}
+
+.tableWrap{
+    position: absolute;  
+    bottom: 0;
+    left: 40%;
+    margin-bottom: 50px;
 }
 
 

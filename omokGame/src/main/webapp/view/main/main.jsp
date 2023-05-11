@@ -33,7 +33,7 @@
         <div class="rect1">
           <div class="player1">1P</div>
           
-          <button type="button" id="btnEvent" class="btnEvent" style="background-color: black; border: none; cursor:pointer;" onclick="view(${user1.userno})">
+          <button type="button" id="btnEvent" class="btnEvent" style="background-color: transparent; border: none; cursor:pointer;" onclick="view(${user1.userno})">
         	<img src="${pageContext.request.contextPath}/img/Group 27.png" class="Group27" />
         </button>
           
@@ -46,7 +46,7 @@
         <div class="rect2">
           <div class="player2">2P</div>
           
-         <button type="button" id="btnEvent" class="btnEvent" style="background-color:black; border: none; cursor:pointer;" onclick="view(${user2.userno})">
+         <button type="button" id="btnEvent" class="btnEvent" style="background-color:transparent; border: none; cursor:pointer;" onclick="view(${user2.userno})">
         	<img src="${pageContext.request.contextPath}/img/Group 25.png" class="Group25" />
         </button>
           

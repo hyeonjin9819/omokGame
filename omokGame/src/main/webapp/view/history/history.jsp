@@ -62,6 +62,7 @@
         
         <div class="middleLine"></div>
         <div class="history">
+        	<div class= "rightSide">
         	<div>
 <!-- 			  <select id = "filter" name="filter" onchange="handleOnChange(this)" onclick="historyFilter">
 			  	<option value="all">All</option>
@@ -107,21 +108,26 @@
                 	</c:forEach>
                 </c:if>
             </table>
-            
-            
-            <div style="position: abosolute">
+
+        </div>
+        
+        <div class="tableWrap">
               	<!-- START : 페이지네이션  -->
-		<nav aria-label="...">
+		<nav aria-label="..." >
+			<div style="width:100%" class="halfpage">
 			<ul class="pagination pagination-sm">
 				<c:forEach begin="1" end="${data.totalPage / 10 +1}" step="1" var="i">
 						<li class="page-item"><a style="background-color: black; color: white; font-size:larger" class="page-link"href="index.do?user=${userno}&pg=${i}">${i}</a></li>
 				</c:forEach>
 			</ul>
-		</nav>	
 			</div>
-			
-        </div>
-
+		</nav>	
+	</div>
+	
+	
+	
+	            </div> 
+	
     </div>
 </body>
 </html>
