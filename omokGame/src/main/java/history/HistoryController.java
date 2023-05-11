@@ -54,13 +54,14 @@ public class HistoryController extends HttpServlet {
 			int user = Integer.parseInt(req.getParameter("user"));
 			System.out.println(1);	
 			HistoryVO vo = dao.getUserInfo(user); // 1�� �꽆寃⑥삱 �쑀�� (pk) -> �븘留� �꽭�뀡�뿉 ���옣// 李⑦썑 蹂��닔 �닔�젙 �븘�슂 			
-			
+			req.setAttribute("userno", user);
 			//String filter = req.getParameter("filter");	
 			String filter = "all";
 			
 //			System.out.println("filter: "+ filter);
-			
-			req.setAttribute("tableList", dao.getHistoryList(user, filter)); // all�� �엫�쓽濡� �뱾�뼱媛� 寃�
+			int pg = Integer.parseInt(req.getParameter("pg")); // 디폴트 페이지네이션(pg)는 1으로 넘어간다.
+			System.out.println(pg);
+			req.setAttribute("tableList", dao.getHistoryList(user, filter, pg)); // all�� �엫�쓽濡� �뱾�뼱媛� 寃�
 			req.setAttribute("data", vo);
 					
 			page = "/view/history/history.jsp";

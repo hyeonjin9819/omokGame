@@ -96,12 +96,11 @@
                 <c:if test="${!empty tableList}">
                 	<c:forEach var ="his" items="${tableList }" varStatus="status">
                 	<tr id = "item">
-                	<td>${status.count} </td> 
+                	<td>${his.gameIndex} </td> 
                 	<td>${his.p1Name }</td>
                 	<td>${his.p2Name }</td>
                 	<td>${his.date}</td>
                 	<td>${his.winner }</td>
-                	
                 	<td>${his.mode }</td>
                 	</tr>
                 	
@@ -110,9 +109,15 @@
             </table>
             
             
-            <div>
-
-페이지처리 하는 곳
+            <div style="position: abosolute">
+              	<!-- START : 페이지네이션  -->
+		<nav aria-label="...">
+			<ul class="pagination pagination-sm">
+				<c:forEach begin="1" end="${data.totalPage / 10 +1}" step="1" var="i">
+						<li class="page-item"><a style="background-color: black; color: white; font-size:larger" class="page-link"href="index.do?user=${userno}&pg=${i}">${i}</a></li>
+				</c:forEach>
+			</ul>
+		</nav>	
 			</div>
 			
         </div>

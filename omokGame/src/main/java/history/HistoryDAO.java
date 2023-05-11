@@ -12,9 +12,9 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 public class HistoryDAO {
-	private PreparedStatement pstmt, pstmt2;
+	private PreparedStatement pstmt, pstmt2, pstmtPage;
 	private Connection con;
-	ResultSet rs, rs2;
+	ResultSet rs, rs2, rs3;
 	private DataSource dataFactory; // �굹以묒뿉 �삤�씪�겢�쑝濡� 諛붽씀硫� �븘�슂�븿 
 	
 	public HistoryDAO() {
@@ -49,33 +49,76 @@ public class HistoryDAO {
 		return name;
 	}
 	
-	// �쟾�쟻 由ъ뒪�듃 
-	public List<HistoryVO> getHistoryList(int userId, String filter) {
+	// 유저의 전적이 가져오는 모든 컬럼의 숫자를 구함
+	private int findPage(int id) {
+		int maxPage = 0;
+		try {
+			String query = "select max(rnum) as maxnum from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?)";
+			pstmtPage = con.prepareStatement(query);
+			pstmtPage.setInt(1, id);
+			pstmtPage.setInt(2, id);
+			rs3 = pstmtPage.executeQuery();
+			rs3.next();
+			maxPage = rs3.getInt("maxnum");
+			System.out.println(maxPage);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {rs3.close();}catch(Exception e) {};
+			try {pstmtPage.close();}catch(Exception e) {};
+		}
+		return maxPage;
+		
+	}
+	
+	// 사용자의 전적을 가져오는 리스트 -> 파라미터 pagenation: 아래 페이지네이션 버튼에서 가져옴
+	public List<HistoryVO> getHistoryList(int userId, String filter, int pagenation) {
 		List<HistoryVO> list = new ArrayList<HistoryVO>();
+		int beginNum = 0;
+		int finalNum = 0;
+//		select * from(
+//				   SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a
+//				   WHERE user1=? OR user2=?
+//				        ) WHERE rnum >=1 and rnum<=9;
 		
 		try {
 			// 湲곕낯�젙�젹 -> 理쒓렐 �궇吏쒖닚�쑝濡�  
-			//String query = "select * from games where (user1 = ? OR user2 =?) ORDER BY gameDate DESC";
-			String query = "select * from games where (user1 = ? OR user2 =?)";
-			if("win".equals(filter)) {
-				query += " AND winner = ?";
-
-			} else if("defeat".equals(filter)) {
-				query += " AND winner != ?";
-			} else if ("all".equals(filter)) {
-				
-			}
-			query += " ORDER BY gameDate DESC";
 			
+//			String query = "select * from games where (user1 = ? OR user2 =?)";
+//			if("win".equals(filter)) {
+//				query += " AND winner = ?";
+//
+//			} else if("defeat".equals(filter)) {
+//				query += " AND winner != ?";
+//			} else if ("all".equals(filter)) {
+//				
+//			}
+//			query += " ORDER BY gameDate DESC";
+//			
+			// 페이지당 10개씩 보여줌
+			String query = "select * from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?) WHERE rnum >=? and rnum<=?";
 			System.out.println(query);
 			pstmt = con.prepareStatement(query);
+
+			int maxNum = findPage(userId); // 전체 컬럼 갯수
+			if (pagenation * 10 > maxNum) { // 넘어오는 컬럼의 갯수가 10 단위가 아님 -> 마지막일 수 있음
+				beginNum = (pagenation-1) * 10 +1;
+				finalNum = maxNum;
+			}else {
+				beginNum = (pagenation-1) * 10 +1;
+				finalNum = pagenation*10;
+			}
 			pstmt.setInt(1, userId);
 			pstmt.setInt(2, userId);
+			pstmt.setInt(3, beginNum);
+			pstmt.setInt(4, finalNum);
+			
 			
 			// all�씠 �븘�땺�븣留� 媛믪씠 �븘�슂�븿
-			if (!"all".equals(filter)) {
-				pstmt.setInt(3, userId);
-			}
+//			if (!"all".equals(filter)) {
+//				pstmt.setInt(3, userId);
+//			}
 
 			rs = pstmt.executeQuery();
 			
@@ -92,6 +135,7 @@ public class HistoryDAO {
 				vo.setP1Name(findName(p1Id));
 				vo.setP2Name(findName(p2Id));
 				vo.setWinner(findName(winnerId));
+				
 				list.add(vo);
 			}
 			
@@ -115,8 +159,8 @@ public class HistoryDAO {
 			System.out.println(query);
 			pstmt.setInt(1, userId);
 			rs = pstmt.executeQuery();
-			
-			
+			int maxNum = findPage(userId); // 전체 컬럼 갯수
+			vo.setTotalPage(maxNum);
 			if (rs.next()) {
 				int gamecnt  = rs.getInt("gamecnt");
 				int wincnt = rs.getInt("wincnt");
@@ -125,6 +169,8 @@ public class HistoryDAO {
 				vo.setP1Name(rs.getString("nickname"));
 				vo.setGamecnt(rs.getInt("gamecnt"));
 				vo.setWinrate(winrate);
+				
+				
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
