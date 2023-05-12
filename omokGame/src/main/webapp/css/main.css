@@ -317,7 +317,8 @@
   line-height: 23px;
   cursor: pointer;
 	
-  font-family: "Inter";
+  font-family: 'Almarai', sans-serif;
+  text-shadow: 5px 5px #2D63A7;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
@@ -325,4 +326,26 @@
   background-color: #100f0f;
   color: #ffffff;
   
+}
+
+.btn2, .btn3 {
+  border: 0;
+  outline: none;
+  font-size: 30px;
+  margin: 30px;
+  background: black;
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.btn2:hover {
+  color: white;
+  background: #1499f8;
+}
+
+.btn3:hover {
+  color: white;
+  background: #e259ed;
 }

@@ -7,6 +7,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=Bebas+Neue&family=Russo+One&display=swap');
+</style>
+
+
 <link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
 <script>
 // rect1 클래스의 onclick 이벤트를 클릭하면 view1 함수 실행
@@ -83,9 +88,9 @@
     <div class="modal">
       <div class="modal_content" title="클릭하면 창이 닫힙니다.">
         <p>오목에는 총 3가지 모드가 있습니다.</p>
-        <p style="color: #1499f8;">NORMAL 모드: 같은 색의 돌을 연속으로 다섯개 먼저 늘어놓아라</p>
-        <p style="color: #e259ed;">BLITZ 모드: 식상한 NORMAL 모드로부터 벗어나자</p>
-        <p style="color: red;">EVENT 모드: 불길이 타오르는 오목판 위에서 제한된 시간내에 이겨야 한다</p>
+        <p style="color: #1499f8;">NORMAL 모드</p> 같은 색의 돌을 연속으로 다섯개 먼저 늘어놓아라
+        <p style="color: #e259ed;">BLITZ 모드</p> 식상한 NORMAL 모드로부터 벗어나자
+        <p style="color: red;">EVENT 모드</p> 불길이 타오르는 오목판 위에서 제한된 시간내에 이겨야 한다
         <input type="button" class="btn2" value="GAME START" />
         <input type="button" class="btn3" value="CLOSE" />
       </div>
