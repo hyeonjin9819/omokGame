@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #4B4B47;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1200px;
+}   
+
+.signUp{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+
+    box-sizing: border-box;
+    border: 8px solid #1499F8;
+    width: 780px;
+    height: 600px;
+    border-radius: 50px;
+    background: #1D1D1D;
+}
+
+.infoForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-around;
+
+    width: 700px;
+    height: 450px;
+}
+
+.agreeForm{
+    background: #333333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    width: 300px;
+    height: 400px;
+}
+.agreeForm > .agreeHeader {
+    width: 280px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+.agreeForm > .agreeBody{
+    width: 280px;
+    height: 150px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+.agreeForm > .agreeFooter{
+    text-align: center;
+    
+    width: 150px;
+    height: 40px;
+    background: #202020;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    color: #FFFFFF;
+}
+
+
+/* 동의 칸은 끝 */
+
+.inputWrapper{
+    width: 300px;
+    height: 400px;
+}
+
+.inputWrapper > .textForm {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+    height: 400px;
+    flex-direction: column;
+}
+
+.inputWrapper > .textForm > div {
+    /* display: flex; */
+    width: 260px;
+    /* height: 40px; */
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.inputWrapper > .textForm > .inputForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.inputText > input {
+    width: 180px;
+    height: 30px;
+    background: #8A8A8A;
+    color: #ffffff;
+}
+
+font{
+	height:34px;
+}
+
+.btn > input {
+
+    background: #444341;
+    border: 3px solid #59C0E7;
+    border-radius: 5px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+}
+
+.signUpBtn{
+    width: 230px;
+    height: 50px;
+    background: #59C0E7;
+    border-radius: 120px;
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
