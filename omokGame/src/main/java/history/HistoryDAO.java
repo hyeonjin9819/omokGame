@@ -77,25 +77,7 @@ public class HistoryDAO {
 		List<HistoryVO> list = new ArrayList<HistoryVO>();
 		int beginNum = 0;
 		int finalNum = 0;
-//		select * from(
-//				   SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a
-//				   WHERE user1=? OR user2=?
-//				        ) WHERE rnum >=1 and rnum<=9;
-		
 		try {
-			// 湲곕낯�젙�젹 -> 理쒓렐 �궇吏쒖닚�쑝濡�  
-			
-//			String query = "select * from games where (user1 = ? OR user2 =?)";
-//			if("win".equals(filter)) {
-//				query += " AND winner = ?";
-//
-//			} else if("defeat".equals(filter)) {
-//				query += " AND winner != ?";
-//			} else if ("all".equals(filter)) {
-//				
-//			}
-//			query += " ORDER BY gameDate DESC";
-//			
 			// 페이지당 10개씩 보여줌
 			String query = "select * from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?) WHERE rnum >=? and rnum<=?";
 			System.out.println(query);
@@ -148,7 +130,7 @@ public class HistoryDAO {
 		return list;
 	}
 	
-	//�쟾�쟻�뀒�씠釉� �쑀�� �젙蹂� 
+	// 전적에서 왼쪽 유저 정보 불러오는 메소드
 	public HistoryVO getUserInfo(int userId) {
 		
 		HistoryVO vo = new HistoryVO();
@@ -165,6 +147,15 @@ public class HistoryDAO {
 				int gamecnt  = rs.getInt("gamecnt");
 				int wincnt = rs.getInt("wincnt");
 				double winrate = ( ((double)wincnt / (double)gamecnt) * 100);
+				
+				// winrate 값 nan일 시(맨 처음) 0으로 수정
+				if("NaN".equals(String.valueOf(winrate))) {
+					winrate = 0;
+				} else {
+					winrate = Math.round(winrate*100)/100.0;
+				}
+				
+				System.out.println("winrate 테스트: " + winrate);
 				vo.setPoint(rs.getInt("point"));
 				vo.setP1Name(rs.getString("nickname"));
 				vo.setGamecnt(rs.getInt("gamecnt"));
@@ -201,6 +192,13 @@ public class HistoryDAO {
 				int total = rs.getInt("gamecnt");
 				int winno = rs.getInt("wincnt");
 				double winrate = (((double)winno / (double)total) * 100);
+				
+				if("NaN".equals(String.valueOf(winrate))) {
+					winrate = 0;
+				} else {
+					winrate = Math.round(winrate*100)/100.0;
+				}
+				
 				vo.setWinrate(winrate);
 				vo.setPoint(rs.getInt("point"));
 			}
