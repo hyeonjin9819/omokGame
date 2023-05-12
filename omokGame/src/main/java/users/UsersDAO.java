@@ -26,7 +26,7 @@ public class UsersDAO {
 		}
 	}
 	
-	// 로그인을 위한 회원체크
+	// 濡쒓렇�씤�쓣 �쐞�븳 �쉶�썝泥댄겕
 	public UsersVO searchOne(String playerNum, String id, String pwd) {
 		UsersVO vo = null;
 		try {
@@ -55,69 +55,68 @@ public class UsersDAO {
 		return vo;
 	}
 	
+	public boolean insert(String id, String pwd, String nName) {
+	      boolean result = false;
+	      try {
+	         con = dataFactory.getConnection();
+	         String query = "INSERT INTO USERS (usersid, id, pwd, nickname) VALUES (USERS_SEQ.NEXTVAL,?,?,?)";
+	         pstmt = con.prepareStatement(query);
+	         pstmt.setString(1, id);
+	         pstmt.setString(2, pwd);
+	         pstmt.setString(3, nName);
+	         int r = pstmt.executeUpdate();
+	         if (r > 0)
+	            result = true;
+	         pstmt.close();
+
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      }
+	      return result;
+	   }
+	   
+	   public boolean checkNickname(String nName) {
+	      boolean result = false;
+	      System.out.println(nName);
+	      try {
+	         con = dataFactory.getConnection();
+	         pstmt = con.prepareStatement("SELECT COUNT(*) AS cnt FROM users WHERE nickname=?");
+	         pstmt.setString(1, nName);
+	         rs = pstmt.executeQuery();
+	         
+	         rs.next();
+	         if(rs.getInt("cnt") > 0) result = true;
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {rs.close();}catch(Exception e) {e.printStackTrace();}
+	         try {pstmt.close();}catch(Exception e) {e.printStackTrace();}
+	         try {con.close();}catch(Exception e) {e.printStackTrace();}
+	      }
+	      return result;
+	   }
+	   
+	   public boolean checkId(String id) {
+	      boolean result = false;
+	      try {
+	         con = dataFactory.getConnection();
+	         pstmt = con.prepareStatement("SELECT COUNT(*) AS cnt FROM users WHERE id=?");
+	         pstmt.setString(1, id);
+	         rs = pstmt.executeQuery();
+	         
+	         rs.next();
+	         if(rs.getInt("cnt") > 0) result = true;
+	      } catch (Exception e) {
+	         e.printStackTrace();
+	      } finally {
+	         try {rs.close();}catch(Exception e) {e.printStackTrace();}
+	         try {pstmt.close();}catch(Exception e) {e.printStackTrace();}
+	         try {con.close();}catch(Exception e) {e.printStackTrace();}
+	      }
+	      return result;
+	   }
+	
+	
+	
 }
 
-
-/**
-* @package : users
-* @name : USERSDAO
-* @create-date: 2023.05.08
-* @author : 전다연
-* @version : 1.0.0
-* 
-* @IF : 위의 DataFactory가 안될때
-*/
-
-//package users;
-//
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
-//import java.sql.ResultSet;
-//
-//
-//
-//public class UsersDAO {
-//	private PreparedStatement pstmt;
-//	private Connection con;
-//	ResultSet rs;
-//	
-//	public UsersDAO() {
-//		try {
-//			Class.forName("oracle.jdbc.OracleDriver");
-//			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521/xe", "testuser", "test1234");
-//		} catch (Exception e) {
-//			
-//		}
-//	}
-//	
-//	// 로그인을 위한 회원체크
-//	public UsersVO searchOne(String playerNum, String id, String pwd) {
-//		UsersVO vo = null;
-//		try {
-//			String query = "select * from USERS where id=? and pwd=?";
-//			pstmt = con.prepareStatement(query);
-//			pstmt.setString(1, id);
-//			pstmt.setString(2, pwd);
-//			rs = pstmt.executeQuery();
-//			
-//			if(rs.next()) {
-//				vo = new UsersVO();
-//				vo.setPlayerNum(playerNum);
-//				vo.setId(rs.getString("id"));
-//				vo.setNickname(rs.getString("nickname"));
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		} 
-//		return vo;
-//	}
-//	
-//	
-//	public void close() {
-//		if (rs != null) try {rs.close();}catch(Exception e) {}
-//		if (pstmt != null) try {pstmt.close();}catch(Exception e) {}
-//		if (con != null) try {con.close();}catch(Exception e) {}
-//	}
-//	
-//}

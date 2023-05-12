@@ -11,5 +11,6 @@ public class UsersVO {
 	private int wincnt;
 	private int gamecnt;
 	private int point;
+	private String pwd;
 	
 }

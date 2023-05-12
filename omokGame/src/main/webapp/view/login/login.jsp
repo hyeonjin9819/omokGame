@@ -121,7 +121,7 @@
 			</div>
 		</div>
 		<div id="footer">
-			<a href="">want JOIN?</a>
+			<a href="/omokGame/users/signUp.do">want JOIN?</a>
 		</div>
 	</div>
 </body>

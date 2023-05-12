@@ -71,7 +71,45 @@ public class UsersController extends HttpServlet {
 				response.getWriter().print("<script>alert('�옒紐삳맂 �젒洹쇱엯�땲�떎.'); "
 						+ "location.href = '/omokGame/users/start';</script>");
 			}
-		}
+		}else if ("/signUp.do".equals(action)) {
+	         response.sendRedirect("/omokGame/view/signUp/signUp.jsp");
+	      } else if("/insert.do".equals(action)) {
+
+	         UsersVO vo = new UsersVO();
+	         
+	         vo.setId(request.getParameter("id"));
+	         vo.setPwd(request.getParameter("pwd"));
+	         vo.setNickname(request.getParameter("nickname"));
+	         boolean check = false;
+	         
+	         check = dao.insert(vo.getId(), vo.getPwd(), vo.getNickname());
+	         
+	      } else if("/checkNickname.do".equals(action)) {
+	         boolean nickname = dao.checkNickname(request.getParameter("nickname"));
+	         PrintWriter out = response.getWriter();
+	         
+	         if(nickname) {
+	            out.print("nicknameUnchk");
+	         } else {
+	            out.print("nicknameChk");
+	         }
+	         out.flush();
+	         
+	      } else if ("/checkId.do".equals(action)) {
+	         PrintWriter out = response.getWriter();
+	         
+	         boolean id = dao.checkNickname(request.getParameter("id"));
+	         
+	         if(id) {
+	            out.print("idUnchk");
+	         } else {
+	            out.print("idChk");
+	         }
+	         out.flush();
+
+	      } else if ("/login.do".equals(action)) {
+	         response.sendRedirect("/omokGame/view/login/login.jsp");
+	      }
 		
 	}
 }
