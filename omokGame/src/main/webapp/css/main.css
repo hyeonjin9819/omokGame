@@ -299,32 +299,34 @@
   top: 0;
   left: 0;
   display: none;
+  
+  
+  
 }
 
 .modal_content {
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   background: #fff;
   border-radius: 10px;
   position: relative;
   top: 50%;
   left: 50%;
   margin-top: -400px;
-  margin-left: -190px;
+  margin-left: -250px;
   text-align: center;
   box-sizing: border-box;
   padding: 74px 0;
   line-height: 23px;
   cursor: pointer;
 	
-
+  font-family: 'Almarai', sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 30px;
   line-height: 50px;
   background-color: #100f0f;
   color: #ffffff;
-  
 }
 
 .btn2, .btn3 {
