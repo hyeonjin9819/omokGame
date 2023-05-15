@@ -10,7 +10,7 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=Bebas+Neue&family=Russo+One&display=swap');
 </style>
-<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
+<link href="${pageContext.request.contextPath}/css/main.css?after" rel="stylesheet" type="text/css">
 <script>
 // rect1 클래스의 onclick 이벤트를 클릭하면 view1 함수 실행
 	function view(userno) {
