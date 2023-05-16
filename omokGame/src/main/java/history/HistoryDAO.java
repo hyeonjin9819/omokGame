@@ -19,7 +19,6 @@ public class HistoryDAO {
 	
 	public HistoryDAO() {
 
-		
 	      try {
 	          Context ctx = new InitialContext();
 	          Context envContext = (Context) ctx.lookup("java:/comp/env");
@@ -39,7 +38,6 @@ public class HistoryDAO {
 			rs2 = pstmt2.executeQuery();
 			rs2.next();
 			name = rs2.getString("nickname");
-			System.out.println(name);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -141,7 +139,17 @@ public class HistoryDAO {
 			System.out.println(query);
 			pstmt.setInt(1, userId);
 			rs = pstmt.executeQuery();
-			int maxNum = findPage(userId); // 전체 컬럼 갯수
+			//int maxNum = findPage(userId); // 전체 컬럼 갯수
+			query = "select max(rnum) as maxnum from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?)";
+			pstmtPage = con.prepareStatement(query);
+			pstmtPage.setInt(1, userId);
+			pstmtPage.setInt(2, userId);
+			rs3 = pstmtPage.executeQuery();
+			rs3.next();
+			int maxNum = rs3.getInt("maxnum");
+			
+			
+			
 			vo.setTotalPage(maxNum);
 			if (rs.next()) {
 				int gamecnt  = rs.getInt("gamecnt");
@@ -168,6 +176,8 @@ public class HistoryDAO {
 		} finally {
 			try {rs.close();} catch (Exception e) {}
 			try {pstmt.close();} catch (Exception e) {}
+			try {rs3.close();} catch (Exception e) {}
+			try {pstmtPage.close();} catch (Exception e) {}
 		}
 		return vo;
 	}

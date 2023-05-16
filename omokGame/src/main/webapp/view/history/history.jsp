@@ -23,13 +23,8 @@
     	 location.href="?filter=" + id; 
      }
      
-     /* 유저 이름 넘겨주면 찾는 로직  */
-     function findUser(id){
-    	 
-     }
-     
      function back() {
-    	 window.history.back();
+    	 location.href = "${pageContext.request.contextPath}/main.do"
      }
 
     
@@ -41,13 +36,12 @@
 
 <body class="wrap">
     <div class="borderbox">
-    <div>
-    	<button type="button" id="btnEvent" class="btnEvent" style="background-color:transparent; border: none;" onclick=back()>
-        	<img src = "${pageContext.request.contextPath}/img/back.png" alt="btnImages"> 
-        </button>
-        </div>
         <div class="userExplain">
-           <br>
+            <div class="backBtn">
+		    	<button type="button" id="btnEvent" class="btnEvent" style="background-color:transparent; border: none;" onclick=back()>
+		        	<img src = "${pageContext.request.contextPath}/img/back.png" alt="btnImages"> 
+		        </button>
+        	</div>
             <div class="userDetail">
                 NAME: ${data.p1Name }<br>
                 PLAYED: ${data.gamecnt }<br>
@@ -97,7 +91,7 @@
                 <c:if test="${!empty tableList}">
                 	<c:forEach var ="his" items="${tableList }" varStatus="status">
                 	<tr id = "item">
-                	<td>${his.gameIndex} </td> 
+                	<td>${(status.count) + (param.pg-1)*10 }</td>
                 	<td>${his.p1Name }</td>
                 	<td>${his.p2Name }</td>
                 	<td>${his.date}</td>
@@ -123,9 +117,6 @@
 			</div>
 		</nav>	
 	</div>
-	
-	
-	
 	            </div> 
 	
     </div>

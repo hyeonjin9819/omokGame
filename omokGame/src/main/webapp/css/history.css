@@ -38,8 +38,9 @@
     line-height: 77px;
     justify-content: space-between;
     flex-direction: column;
+    height:630px;
     display: flex;
-    justify-content: space-evenly;
+
     
 }
 
