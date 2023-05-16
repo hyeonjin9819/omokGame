@@ -9,16 +9,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="${pageContext.request.contextPath}/css/reset.css" type="text/css"  rel="stylesheet" >
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link href="${pageContext.request.contextPath}/css/map.css" type="text/css"  rel="stylesheet" >
+  <link href="${pageContext.request.contextPath}/css/map.css?after" type="text/css"  rel="stylesheet" >
 <title>Insert title here</title>
-<script type="text/javascript">
-function gamepage(mapNo) {
-	 window.location.href = '/omokGame/game/gamepage.do?mapNo='+mapNo;
-	
-}
 
-
-</script>
 </head>
 <body>
   <div class="wrap">
@@ -29,15 +22,15 @@ function gamepage(mapNo) {
       <div class="visual">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" onclick="gamepage(1)">
+                <div class="swiper-slide" onclick="location.href='/omokGame/game/map.do?mapval=1'">
                  <img src="${pageContext.request.contextPath}/img/topgol.png" alt="" >
                 <p class="place">TOPGOL</p>
                 </div>
-                <div class="swiper-slide" onclick="gamepage(2)">
+                <div class="swiper-slide" onclick="location.href='/omokGame/game/map.do?mapval=2'">
                   <img src="${pageContext.request.contextPath}/img/kiwon.png" alt="">
                  <p class="place kiwon">KIWON</p>
                  </div>
-                 <div class="swiper-slide" onclick="gamepage(3)">
+                 <div class="swiper-slide" onclick="location.href='/omokGame/game/map.do?mapval=3'">
                   <img src="${pageContext.request.contextPath}/img/naengdonggo.png" alt="">
                  <p class="place naengdonggo">NAENGDONG</p>
                  </div>

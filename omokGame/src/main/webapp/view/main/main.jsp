@@ -23,7 +23,7 @@
 	      $(".start").click(function () {
 	        $(".modal").fadeIn(function () {
 	          $(".btn2").click(function () {
-	            location.href = "${pageContext.request.contextPath}/game/mode.do";
+	            location.href = "${pageContext.request.contextPath}/game/modepage.do";
 	          });
 	        });
 	      });

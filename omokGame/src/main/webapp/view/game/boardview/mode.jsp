@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="${pageContext.request.contextPath}/css/reset.css" type="text/css"  rel="stylesheet" >
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-  <link href="${pageContext.request.contextPath}/css/mode.css" type="text/css"  rel="stylesheet" >
+  <link href="${pageContext.request.contextPath}/css/mode.css?after" type="text/css"  rel="stylesheet" >
   <title>Document</title>
 </head>
 <body>
@@ -21,13 +21,13 @@
       <div class="visual">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide normal"  onclick="location.href='/omokGame/game/map.do?modeNo=1'">
+                <div class="swiper-slide normal"  onclick="location.href='/omokGame/game/mode.do?modeval=1'">
                   <p>NORMAL MODE</p>
                 </div>
-                <div class="swiper-slide blitz"  onclick="location.href='/omokGame/game/map.do?modeNo=2'">
+                <div class="swiper-slide blitz"  onclick="location.href='/omokGame/game/mode.do?modeval=3'">
                   <p>BLITZ MODE</p>
                  </div>
-                 <div class="swiper-slide event" onclick="location.href='/omokGame/game/map.do?modeNo=3'">
+                 <div class="swiper-slide event" onclick="location.href='/omokGame/game/mode.do?modeval=2'">
                     <p>EVENT MODE</p>
                     
                  </div>
