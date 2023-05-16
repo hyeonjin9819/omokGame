@@ -6,18 +6,37 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/css/main.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Almarai:wght@300&family=Bebas+Neue&family=Russo+One&display=swap');
+</style>
+<link href="${pageContext.request.contextPath}/css/main.css?after" rel="stylesheet" type="text/css">
 <script>
 // rect1 클래스의 onclick 이벤트를 클릭하면 view1 함수 실행
 	function view(userno) {
 		//location 내장객체를 이용하여 history1(컨트롤러 역할) 서블릿으로 이동한다.
 		location.href="${pageContext.request.contextPath}/history/index.do?user="+userno+"&pg=1";
 	}
+	
+	
+	 $(function () {
+	      $(".start").click(function () {
+	        $(".modal").fadeIn(function () {
+	          $(".btn2").click(function () {
+	            location.href = "${pageContext.request.contextPath}/game/mode.do";
+	          });
+	        });
+	      });
 
-	function start() {
+	      $(".btn3").click(function () {
+	        $(".modal").fadeOut();
+	      });
+	    });
+	
+	/* function start() {
 		location.href="${pageContext.request.contextPath}/game/mode.do"; // 아래 게임시작 버튼 start를 누를경우, 
 								//history1 서블릿으로 이동하여, 이 서블릿에서 start.do로 연결된다.
-	}
+	} */
 	
 	function exit() {
 		location.href="exit.do"; // 아래 나가기 버튼 exit를 누를경우, 
@@ -62,6 +81,16 @@
         <div class="start" onclick="start()" style="cursor:pointer">START</div>
         <div class="exbtn" ></div>
         <div class="exit" onclick="exit()" style="cursor:pointer">EXIT</div>
+      </div>
+    </div>
+    <div class="modal">
+      <div class="modal_content">
+        <p>오목에는 총 3가지 모드가 있습니다.</p>
+        <p style="color: #1499f8;">NORMAL 모드</p> 같은 색의 돌을 연속으로 다섯개 먼저 늘어놓아라
+        <p style="color: #e259ed;">BLITZ 모드</p>  불길이 타오르는 오목판 위에서 제한된 시간내에 이겨야 한다
+        <p style="color: rgb(246, 246, 87);">EVENT 모드</p> 뭔가 색다른 모드를 원한다면 선택
+        <input type="button" class="btn2" title="게임이 시작됩니다." value="GAME START" />
+        <input type="button" class="btn3" title="이전화면으로 돌아갑니다." value="PREVIOUS" />
       </div>
     </div>
 </div>	
