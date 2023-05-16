@@ -4,14 +4,13 @@
 	margin: 0 auto;
 	background-color: black;
 	box-sizing: border-box;
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	}
 .main{
 	width: 1017px;
 	height: 709px;
-	position: absolute;
-	top: 185px;
-	left: 452px;
 	border: 20px solid #1499F8;
 	border-radius: 30px;
 	background-color: #8a8a8a;
