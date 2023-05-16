@@ -20,7 +20,7 @@
 	}
 	
 	function exit() {
-		location.href="exit.do"; // 아래 나가기 버튼 exit를 누를경우, 
+		location.href="${pageContext.request.contextPath}/users/start"; // 아래 나가기 버튼 exit를 누를경우, 
 								//history1 서블릿으로 이동하여, 이 서블릿에서 exit.do로 연결된다.
 	}
 	
