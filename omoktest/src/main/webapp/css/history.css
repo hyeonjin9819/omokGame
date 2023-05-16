@@ -1,0 +1,119 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+.wrap{
+    background-color: #444341;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.borderbox{
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 1400px;
+    height: 770px;
+    background: #000000;
+    border: 10px solid #1499F8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.btnEvent{
+	background-color:transparent;
+}
+
+
+.userExplain{
+    margin: 10px;
+    /* width: 20%; */
+    color: #ffffff;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 50px;
+    line-height: 77px;
+    justify-content: space-between;
+    flex-direction: column;
+    height:630px;
+    display: flex;
+
+    
+}
+
+.userDetail{
+
+}
+
+.coinTxt{
+    text-align: right;
+
+}
+
+.coinTxt hr{
+    float: right;
+    background: #1499F8;
+    width: 100%;
+    border: 3px solid #3999dec7;
+}
+
+img {
+    width: 60px;
+    height: 60px;
+    object-fit: fill;
+}
+.middleLine{
+    border-left : thick solid #1499F8;
+    height : 70%;
+    margin-top: 10%;
+    margin-bottom: 15%;
+}
+
+.history{
+    width: 60%;
+    color: blue;
+    text-align: center;
+    align-items: flex-start;
+    margin-top: 145px;
+    position:relative;
+}
+
+.historyTable{
+    border: 1px solid #1499F8;
+    border-collapse: collapse;
+    width: 100%;
+    
+}
+
+.historyTable th{
+    border: 1px solid #1499F8;
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #000000;
+}
+
+.historyTable td{
+    border: 1px solid #1499F8;
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    background-color: #333333;
+}
+
+.historyPage {
+    text-align: center;
+    margin: 0 auto;;
+}
+
+.tableWrap{
+    position: absolute;  
+    bottom: 0;
+    left: 40%;
+    margin-bottom: 50px;
+}
+
+

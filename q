@@ -1,0 +1,204 @@
+[33mcommit b05fc98f45e7f91612e99d03fe6796b93f2823bd[m[33m ([m[1;36mHEAD -> [m[1;32mgames/temp[m[33m, [m[1;32mgame/temp[m[33m)[m
+Author: parksangjun1196 <parksangjun1196@gmail.com>
+Date:   Tue May 16 12:35:09 2023 +0900
+
+    0516
+
+[33mcommit a26c4a9f0b78f202e388d8240b0d36d9d934024e[m[33m ([m[1;31morigin/develop[m[33m, [m[1;32mmaster[m[33m)[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Tue May 16 10:13:57 2023 +0900
+
+    fix:전적 페이지 idx 수정
+
+[33mcommit 855bddd5d183b7bcd76ada61cca93cb848214a51[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Fri May 12 17:41:02 2023 +0900
+
+    fix: 전적 NaN, 반올림
+
+[33mcommit 7911d7750311f687db36f033650f198171bd9491[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Fri May 12 17:14:13 2023 +0900
+
+    merge:signup
+    
+    회원가입 merge
+
+[33mcommit 2b474b4e5919d76ba393f56485a414106472b908[m
+Merge: 2df8875 a8a7df3
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Thu May 11 20:10:50 2023 +0900
+
+    Merge pull request #13 from hyeonjin9819/feat/addEvent
+    
+    Feat/add event
+
+[33mcommit a8a7df317e61102a6c0ff1cfe72480ed692dbb43[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Thu May 11 20:09:13 2023 +0900
+
+    feat: 게임 모드 merge
+
+[33mcommit 7d09beec4e3aea7802dc800c4334613775aa4025[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Thu May 11 20:08:07 2023 +0900
+
+    fix:전적 페이지네이션 수정
+
+[33mcommit 2df88753be53e013966a0e0842874557e2da5d11[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Thu May 11 17:44:01 2023 +0900
+
+    feat: 페이지네이션 추가
+    
+    css 미완
+
+[33mcommit b082375e96078bebdef3dd21a9d1687734c476e5[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Wed May 10 09:49:35 2023 +0900
+
+    fix: 전체 경로 수정
+    
+    이미지, 기타 파일들 경로 수정
+
+[33mcommit a5608d2f4187d17059e8af3488f14d870e5efc27[m
+Merge: 6bb98be 1981dd1
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Wed May 10 09:16:44 2023 +0900
+
+    Merge pull request #10 from hyeonjin9819/noname
+    
+    develop <- noname merge
+
+[33mcommit 1981dd1aeb8cec879f616fe09cdb596d9f2cbcbf[m
+Author: parksangjun1196 <parksangjun1196@gmail.com>
+Date:   Wed May 10 09:09:43 2023 +0900
+
+    0510
+
+[33mcommit 6bb98be09e96ae3f0d103423e97e8badd9137578[m
+Merge: 0b263b9 bff7023
+Author: icekjm <132588135+icekjm@users.noreply.github.com>
+Date:   Tue May 9 17:29:21 2023 +0900
+
+    Merge pull request #9 from hyeonjin9819/jmMain
+    
+    fix history.css
+
+[33mcommit bff702390bcf62ccef4586e5759636d31434ba7b[m
+Author: jim <icekjm1029@gmail.com>
+Date:   Tue May 9 17:21:02 2023 +0900
+
+    fix history.css
+    
+    버튼, 배경, 글자크기 조정
+
+[33mcommit 0b263b9f44707496b5a3498d493a8e4ec97b9e9e[m
+Merge: fdb4c70 dc12528
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Tue May 9 17:09:20 2023 +0900
+
+    Merge pull request #8 from hyeonjin9819/feat/addGame
+    
+    게임, 로그인, 전적, 메인 merge
+
+[33mcommit dc12528fafa54bf6370a33edceb53e3f94162e80[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Tue May 9 17:08:17 2023 +0900
+
+    게임 기능 추가
+
+[33mcommit 3c01f33c3b2f6c6196ac68980ae5cff69b43391d[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Tue May 9 16:58:42 2023 +0900
+
+    feat: history paging, jsp 수정
+
+[33mcommit 541b55adb9b370c77223dbfabfbb7ba64cc05f9f[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Mon May 8 18:33:21 2023 +0900
+
+    merge: main + history + login
+    
+    메인페이지, 전적, 로그인 파트 merge
+
+[33mcommit 5c5b810a0bd849556f817b35c4632ceb71a36bf2[m
+Merge: fdb4c70 05e23f0
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Mon May 8 14:43:32 2023 +0900
+
+    Merge pull request #3 from hyeonjin9819/merge/history<-login
+    
+    Merge/history< login
+
+[33mcommit 05e23f0313708c19bd72311be8be84e05b55e3ca[m
+Merge: a9f83f6 78709c3
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Mon May 8 14:22:09 2023 +0900
+
+    Merge pull request #2 from hyeonjin9819/feat/login
+    
+    Feat/login
+
+[33mcommit a9f83f6829ef37cdc34647581cc1ca102637673f[m
+Merge: fdb4c70 0271ee0
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Mon May 8 14:21:07 2023 +0900
+
+    Merge pull request #1 from hyeonjin9819/feat/history
+    
+    merge/history
+
+[33mcommit 0271ee0100678318aae60126dcd3ef789ac023f5[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Mon May 8 14:04:48 2023 +0900
+
+    fix: login mysql to oracle
+    
+    오라클로 변경
+
+[33mcommit 78709c367ab4d8eeffeff691602d9ea17c654b72[m
+Author: Jeon DaYeon <dyntop15@gmail.com>
+Date:   Mon May 8 11:41:29 2023 +0900
+
+    feat:login
+    
+    커넥션풀 적용, user table 업데이트
+
+[33mcommit 4631614e1ef0b9e35b4722a05298abb7cfa8289d[m
+Author: KimHyeonJin <hyeonjin9819@gmail.com>
+Date:   Mon May 8 02:23:41 2023 +0900
+
+    feat: history page
+    
+    전적 화면 + 기능 구성 / 아직 세션 연결 x / mysql로 연결되어있음 / 비동기 작업 수정 필요
+
+[33mcommit b6259d3e04cfdaf0fb897a198c5dc1e26a50c864[m
+Author: DAYEON <dyntop15@gmail.com>
+Date:   Mon May 8 00:01:36 2023 +0900
+
+    feat: login
+    
+    login_2023/05/08
+
+[33mcommit fdb4c70469e049f99ea82d065d0002e1e0853f9b[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Thu May 4 18:09:10 2023 +0900
+
+    fix: 오목 초기세팅
+    
+    수정
+
+[33mcommit 9f878c51c8dc6d3029acc8d42e4707918db5f2a6[m
+Author: kimhyeonjin <hyeonjin9819@gmail.com>
+Date:   Thu May 4 17:59:24 2023 +0900
+
+    feat:오목 초기세팅
+    
+    초기세팅 입니다
+
+[33mcommit 268efd6a3edd15b47335b9138e1a0f46452b0f90[m
+Author: hyeonjin9819 <88416797+hyeonjin9819@users.noreply.github.com>
+Date:   Thu May 4 09:06:53 2023 +0900
+
+    Initial commit
