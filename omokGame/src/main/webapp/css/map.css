@@ -58,7 +58,7 @@
 	align-items: center;
 	width: 402px;
 	height: 352px;
-	border: 20px solid black;
+	/*border: 20px solid black;*/
 	border-radius: 20px;
 	position: relative;
 	cursor: pointer;

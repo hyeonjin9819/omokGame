@@ -39,6 +39,9 @@ public class GamesController extends HttpServlet {
 		
 		if(path.equals("/gamepage.do")) {
 			System.out.println("gamecall");
+			request.getSession().setAttribute("mapNo", request.getParameter("mapNo"));
+//			System.out.println("맵 번호 ========== "+request.getSession().getAttribute("mapNo"));
+//			System.out.println("모드 번호 ========== "+request.getSession().getAttribute("modeNo"));
 			/*
 			 * HttpSession sess = request.getSession(); String user1 =
 			 * (String)sess.getAttribute("user1"); String user2 =
@@ -54,17 +57,14 @@ public class GamesController extends HttpServlet {
 		
 		else if (path.equals("/map.do")) {
 			
-
-			
+			String modeNo = request.getParameter("modeNo");
+			request.getSession().setAttribute("modeNo", modeNo);
 			response.sendRedirect("/omokGame/view/game/boardview/map.jsp");
 			
 			
 		}
 		
 		else if (path.equals("/mode.do")) {
-			
-
-			
 			response.sendRedirect("/omokGame/view/game/boardview/mode.jsp");
 			
 			
@@ -76,6 +76,8 @@ public class GamesController extends HttpServlet {
 			HttpSession sess = request.getSession();
 			UsersVO p1 = (UsersVO)sess.getAttribute("user1");
 			UsersVO p2 = (UsersVO)sess.getAttribute("user2");
+			sess.removeAttribute("mapNo");
+			sess.removeAttribute("modeNo");
 
 	
 			

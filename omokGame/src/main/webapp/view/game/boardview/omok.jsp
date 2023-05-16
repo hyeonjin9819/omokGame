@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 String player1 = (String)session.getAttribute("player1"); 
 String player2 = (String)session.getAttribute("player2"); 
+String map = (String) session.getAttribute("mapNo");
+String mode = (String) session.getAttribute("modeNo");
 %> 
 
 <!DOCTYPE html>
@@ -501,6 +503,7 @@ String player2 = (String)session.getAttribute("player2");
             <div class="timer">
                 <div id="blacktimer"></div>
                 <div id="whitetimer"></div>
+                
             </div>
             <div class="logbox" id="logbox">   
 
@@ -535,6 +538,7 @@ String player2 = (String)session.getAttribute("player2");
         //시간변수
         var blacktime;
         var whitetime;
+        var playertime;
     	
     	window.onload = function(){
     		
@@ -563,7 +567,6 @@ String player2 = (String)session.getAttribute("player2");
 				sessionStorage.setItem("turncnt", turncnt);
 				
 				//시간설정
-				
 				blacktime = 60;
 				whitetime = 60;
 				sessionStorage.setItem("blacktime", blacktime);
@@ -574,9 +577,10 @@ String player2 = (String)session.getAttribute("player2");
 				//이건 나중에 수정 
 				document.getElementById("blacktimer").innerHTML = "01:00";
 				document.getElementById("whitetimer").innerHTML = "01:00";
-
+				
 				turn = 1;
-	
+				
+				printOne(turn);
 			 
 			}
 			else if (strlen > 0) {
@@ -602,10 +606,12 @@ String player2 = (String)session.getAttribute("player2");
 				
 				if (turncnt % 2 == 0) {
 					turn = 1;
+					printOne(turn);
 	
 				}
 				else if (turncnt % 2 == 1) {
 					turn = 2;
+					printOne(turn);
 		
 				}
 
@@ -651,7 +657,7 @@ String player2 = (String)session.getAttribute("player2");
 
 							  img.src = '${pageContext.request.contextPath}/img/white.png';
 	  
-						  }
+						  } 
   
 					  }
 
@@ -664,6 +670,20 @@ String player2 = (String)session.getAttribute("player2");
 		    blackout.style.opacity = 0;
 
     	  }
+    	
+    	//차례에 시간만 보이기
+    	//검은돌 처음 turn==1
+    	//흰돌이 두번째 turn ==2
+    	function printOne(turn){
+    		if(turn  == 1){
+    			document.getElementById("blacktimer").style.display = "block"
+    			document.getElementById("whitetimer").style.display = "none"
+    		}else if(turn == 2){
+    			document.getElementById("whitetimer").style.display = "block"
+    			document.getElementById("blacktimer").style.display = "none"
+    			
+    		}
+    	}
     	
     	//log 
     	
@@ -714,7 +734,7 @@ String player2 = (String)session.getAttribute("player2");
     	}
     	
 
-        
+        <c:if test="${modeNo eq 3}">
         var jagiNum = 1;
         var imgName = "${pageContext.request.contextPath}/img/fire.gif";
         
@@ -772,7 +792,7 @@ String player2 = (String)session.getAttribute("player2");
                  clearInterval(jagi);
               }
          }, 10000)
-        
+        </c:if>
     	//timer
     	
     	function timerlen(text) {
@@ -817,7 +837,7 @@ String player2 = (String)session.getAttribute("player2");
     				whowin = 'whitewin';
     				
     				ajax(whowin) ;
-                    
+    				
     				document.getElementById('whitewin').style.display = 'block';
                     document.getElementById('blurblack').style.display = 'block';
                     sessionStorage.clear();
@@ -853,7 +873,7 @@ String player2 = (String)session.getAttribute("player2");
 					whowin = 'blackwin';
     				
     				ajax(whowin) ;
-    				
+    				warning
     				document.getElementById('blackwin').style.display = 'block';
                     document.getElementById('blurblack').style.display = 'block';
                     sessionStorage.clear();
@@ -1082,7 +1102,7 @@ String player2 = (String)session.getAttribute("player2");
 				sessionStorage.setItem(arridx, arridxval); 
 					
               
-				blacktime = 30;
+				//blacktime = 30;
                 sessionStorage.setItem("blacktime", blacktime);
                 
                 document.getElementById("blacktimer").innerHTML = "01:00";
@@ -1092,7 +1112,7 @@ String player2 = (String)session.getAttribute("player2");
                //temp
                 logprint(turncnt, turn,x, y);
                 turn=2;	
-                
+                printOne(turn);
                 }
                 else if(turn==2 && e1.target.firstChild.src != ""){
                 	
@@ -1142,6 +1162,7 @@ String player2 = (String)session.getAttribute("player2");
                     
                     logprint(turncnt, turn,x, y);
                     turn = 1;
+                    printOne(turn);
                 }else{}
            
             } 
