@@ -12,12 +12,12 @@ public class HistoryVO {
 	   private String userName;
 	   private String p1Name; 
 	   private String p2Name;
-	   private Date date; 
+	   private String date; 
 	   private String winner; 
 	   private int point; 
 	   private double winrate; 
 	   private int gamecnt; 
 	   private String mode;
 	   
-	   private int totalPage; // ÀüÀû Å×ÀÌºí ÆäÀÌÁö Ã³¸®¸¦ À§ÇÑ º¯¼ö (ÀüÃ¼ °è»ê) 
+	   private int totalPage; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½) 
 }

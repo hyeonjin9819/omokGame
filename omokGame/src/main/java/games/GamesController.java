@@ -73,36 +73,56 @@ public class GamesController extends HttpServlet {
 		else if (path.equals("/gameend.do")) {
 			GamesDAO dao = new GamesDAO();
 			GamesVO vo = new GamesVO();
+			String mode = ""; // 저장될 모드 초기화
 			HttpSession sess = request.getSession();
 			UsersVO p1 = (UsersVO)sess.getAttribute("user1");
 			UsersVO p2 = (UsersVO)sess.getAttribute("user2");
+			
+			System.out.println("mode 확인" + sess.getAttribute("modeNo"));
+			if ("1".equals(sess.getAttribute("modeNo"))) {
+				mode = "NORMAL";
+			} else if("2".equals(sess.getAttribute("modeNo"))) {
+				mode = "BLITZ";
+			} else if("3".equals(sess.getAttribute("modeNo"))) {
+				mode = "EVENT";
+			}
+			
 			sess.removeAttribute("mapNo");
 			sess.removeAttribute("modeNo");
-
-	
 			
 			String whowin = request.getParameter("whowinsend");
-			String winner;
+			String winner =""; // 이긴 사람 pk, 초기화
+			String defeat =""; // 진 사람 pk, 초기화
+			
 			if (whowin.equals("blackwin")) {
-				winner = p1.getId();
+				//winner = p1.getId(); // pk 저장되어있으면 그 userid 가져오기
+				winner = String.valueOf(p1.getUsersPK());
 				vo.setWinner(winner);
-				
+				defeat = String.valueOf(p2.getUsersPK());
 			} else if (whowin.equals("whitewin")) {
-				winner = p2.getId();
+				//winner = p2.getId();
+				winner = String.valueOf(p2.getUsersPK());
 				vo.setWinner(winner);
+				defeat = String.valueOf(p1.getUsersPK());
+				
 			}
 			Date from = new Date();
 		
 			SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 			String to = transFormat.format(from);
+			
+			
 	
 			vo.setDate(to);
-			vo.setMode("default");
-			vo.setP1Name(p1.getId());
-			vo.setP2Name(p2.getId());
+			vo.setMode(mode);
+			vo.setP1Name(String.valueOf(p1.getUsersPK())); // name -> pk
+			vo.setP2Name(String.valueOf(p2.getUsersPK())); // name -> pk
+			
 			dao.insertrst(vo);
-
+			dao.winUpdate(Integer.parseInt(winner)); // 승리한 user 정보 업데이트
+			dao.defeatUpdate(Integer.parseInt(defeat)); // 패배한 user 정보 업데이트
+			
 		}
 
 	}

@@ -53,8 +53,18 @@ public class HistoryDAO {
 		try {
 			String query = "select max(rnum) as maxnum from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?)";
 			pstmtPage = con.prepareStatement(query);
-			pstmtPage.setInt(1, id);
-			pstmtPage.setInt(2, id);
+			
+			String userIdStr = String.valueOf(id); // 변환
+			
+			
+			//pstmtPage.setInt(1, id);
+			//pstmtPage.setInt(2, id);
+			
+			
+			pstmtPage.setString(1, userIdStr);
+			pstmtPage.setString(2, userIdStr);
+			
+			
 			rs3 = pstmtPage.executeQuery();
 			rs3.next();
 			maxPage = rs3.getInt("maxnum");
@@ -89,8 +99,14 @@ public class HistoryDAO {
 				beginNum = (pagenation-1) * 10 +1;
 				finalNum = pagenation*10;
 			}
-			pstmt.setInt(1, userId);
-			pstmt.setInt(2, userId);
+			String userIdStr = String.valueOf(userId); // 변환
+			
+			//pstmt.setInt(1, userId);
+			//pstmt.setInt(2, userId);
+			
+			pstmt.setString(1, userIdStr);
+			pstmt.setString(2, userIdStr);
+			
 			pstmt.setInt(3, beginNum);
 			pstmt.setInt(4, finalNum);
 			
@@ -106,7 +122,7 @@ public class HistoryDAO {
 			while(rs.next()) {
 				HistoryVO vo = new HistoryVO();
 				vo.setGameIndex(rs.getInt("gamesid"));
-				vo.setDate(rs.getDate("gameDate"));
+				vo.setDate(rs.getString("gameDate"));
 				vo.setMode(rs.getString("gamemode"));
 				int p1Id = rs.getInt("user1");
 				int p2Id = rs.getInt("user2");
@@ -137,13 +153,22 @@ public class HistoryDAO {
 			String query = "select * from users where USERSID = ?";
 			pstmt = con.prepareStatement(query);
 			System.out.println(query);
-			pstmt.setInt(1, userId);
+			String userIdStr = String.valueOf(userId); // 변환
+			
+			//pstmt.setInt(1, userId);
+			pstmt.setString(1, userIdStr);
+			
 			rs = pstmt.executeQuery();
 			//int maxNum = findPage(userId); // 전체 컬럼 갯수
 			query = "select max(rnum) as maxnum from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?)";
 			pstmtPage = con.prepareStatement(query);
-			pstmtPage.setInt(1, userId);
-			pstmtPage.setInt(2, userId);
+			
+			
+			/*pstmtPage.setInt(1, userId);
+			pstmtPage.setInt(2, userId);*/
+			pstmtPage.setString(1, userIdStr);
+			pstmtPage.setString(2, userIdStr);
+			
 			rs3 = pstmtPage.executeQuery();
 			rs3.next();
 			int maxNum = rs3.getInt("maxnum");
