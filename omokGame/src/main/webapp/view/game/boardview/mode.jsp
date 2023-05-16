@@ -21,15 +21,14 @@
       <div class="visual">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide normal"  onclick="location.href='/omokGame/game/map.do'">
+                <div class="swiper-slide normal"  onclick="location.href='/omokGame/game/map.do?modeNo=1'">
                   <p>NORMAL MODE</p>
                 </div>
-                <div class="swiper-slide blitz"  onclick="location.href='/omokGame/game/map.do'">
+                <div class="swiper-slide blitz"  onclick="location.href='/omokGame/game/map.do?modeNo=2'">
                   <p>BLITZ MODE</p>
                  </div>
-                 <div class="swiper-slide event">
+                 <div class="swiper-slide event" onclick="location.href='/omokGame/game/map.do?modeNo=3'">
                     <p>EVENT MODE</p>
-                    <img src="${pageContext.request.contextPath}/img/free-icon-locked-padlock-61457.png" alt="rock">
                     
                  </div>
             </div>
@@ -37,7 +36,6 @@
        </div>
       </div>
     </div>
-  </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script>

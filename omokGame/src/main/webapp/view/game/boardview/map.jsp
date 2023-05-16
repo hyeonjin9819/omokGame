@@ -12,10 +12,8 @@
   <link href="${pageContext.request.contextPath}/css/map.css" type="text/css"  rel="stylesheet" >
 <title>Insert title here</title>
 <script type="text/javascript">
-function gamepage() {
-	
-	
-	 window.location.href = '/omokGame/game/gamepage.do';
+function gamepage(mapNo) {
+	 window.location.href = '/omokGame/game/gamepage.do?mapNo='+mapNo;
 	
 }
 
@@ -31,15 +29,15 @@ function gamepage() {
       <div class="visual">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" onclick="gamepage()">
+                <div class="swiper-slide" onclick="gamepage(1)">
                  <img src="${pageContext.request.contextPath}/img/topgol.png" alt="" >
                 <p class="place">TOPGOL</p>
                 </div>
-                <div class="swiper-slide" onclick="gamepage()">
+                <div class="swiper-slide" onclick="gamepage(2)">
                   <img src="${pageContext.request.contextPath}/img/kiwon.png" alt="">
                  <p class="place kiwon">KIWON</p>
                  </div>
-                 <div class="swiper-slide" onclick="gamepage()">
+                 <div class="swiper-slide" onclick="gamepage(3)">
                   <img src="${pageContext.request.contextPath}/img/naengdonggo.png" alt="">
                  <p class="place naengdonggo">NAENGDONG</p>
                  </div>

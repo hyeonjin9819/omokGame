@@ -4,6 +4,8 @@
 <%
 String player1 = (String)session.getAttribute("player1"); 
 String player2 = (String)session.getAttribute("player2"); 
+String map = (String) session.getAttribute("mapNo");
+String mode = (String) session.getAttribute("modeNo");
 %> 
 
 <!DOCTYPE html>
@@ -577,6 +579,7 @@ String player2 = (String)session.getAttribute("player2");
 				document.getElementById("whitetimer").innerHTML = "01:00";
 				
 				turn = 1;
+				
 				printOne(turn);
 			 
 			}
@@ -731,7 +734,7 @@ String player2 = (String)session.getAttribute("player2");
     	}
     	
 
-        
+        <c:if test="${modeNo eq 3}">
         var jagiNum = 1;
         var imgName = "${pageContext.request.contextPath}/img/fire.gif";
         
@@ -789,7 +792,7 @@ String player2 = (String)session.getAttribute("player2");
                  clearInterval(jagi);
               }
          }, 10000)
-        
+        </c:if>
     	//timer
     	
     	function timerlen(text) {
