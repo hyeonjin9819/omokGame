@@ -15,6 +15,7 @@
 
 <script>
    function signUp() {
+	  //var con = true;
       var _id = $(".inputId").val();
       var _pwd = $(".inputPwd").val();
       var _checkPwd = $(".inputCheckPwd").val();
@@ -47,6 +48,10 @@
          $('.agreeCheckbox').focus();
          return;
       }
+      if (confirm('가입하시겠습니까?')) {
+    	  
+      }
+      
 
       var params = $("#formname1").serialize();
       $.ajax({
@@ -58,11 +63,12 @@
             nickname : _nickname
          },
          success : function(result) {
-            alert("성공")
-            location.replace('/omokGame/users/start')
+            alert("성공적으로 회원가입 되셨습니다!")
+            $("#formname1").submit();
          }
-      });
+      }); 
    }
+   //if(!con) = return;
 
    // function 따로 만들어서 pwdcheckinput 칸에 onchange
    function pwdCheck() {
@@ -106,7 +112,7 @@
             if (data == 'nicknameUnchk') {
                alert('중복된 닉네임입니다.');
                $('.inputNickname').focus();
-               con = false;
+               conNickname = false;
             } else if (data == 'nicknameChk') {
                alert('사용할 수 있는 닉네임입니다!');
                $('input[name=nicknameDuple]').attr('value', 'nicknameChk')
@@ -114,7 +120,7 @@
          }
       })
       if (!conNickname)
-         false;
+         return;
    }
 
    // id 중복체크
@@ -139,7 +145,7 @@
             if (data == 'idUnchk') {
                alert('중복된 아이디입니다.');
                $('.inputId').focus();
-               con = false;
+               conId = false;
             } else if (data == 'idChk') {
                alert('사용할 수 있는 아이디입니다!');
                $('input[name=idDuple]').attr('value', 'idChk')
@@ -147,17 +153,17 @@
          }
       })
       if (!conId)
-         false;
+         return;
    }
 </script>
 
 </head>
 <body>
-   <form id="formname1">
+   <form id="formname1" action="/omokGame/users/start" method="post">
 
       <div class="wrapper">
 
-         <img class="omokImg" src="../../img/omok2img.png" height="430px" />
+         <img class="omokImg" src="../../img/omok2img.png" height="650px" width="500px" />
 
          <div class="signUp">
             <div class="infoForm">
