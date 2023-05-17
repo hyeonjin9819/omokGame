@@ -540,9 +540,9 @@ window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤
 
 
 
-
     <script>
 /*     var arr; */
+
 
     	var arr;
         var x;
@@ -556,11 +556,9 @@ window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤
         var blacktime;
         var whitetime;
     	
-        
         //omok.jsp 열리자마자 초기값 지정하는 함수
     	window.onload = function(){
-        	
-            var audio = new Audio('${pageContext.request.contextPath}/img/bird.mp3');
+    		var audio = new Audio('${pageContext.request.contextPath}/img/bird.mp3');
             audio.loop = true;
             audio.volume = 0.9;
             audio.play();
@@ -610,9 +608,6 @@ window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤
 				
 				
 				
-				//0515
-	/* 			document.getElementById("blacktimer").innerHTML = "00:30";
-				document.getElementById("whitetimer").innerHTML = "00:30"; */
 				document.getElementById("timerprint").innerHTML = "00:30";
 				
 				//초기 turn은 black 
@@ -677,7 +672,6 @@ window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤
 					
 		
 				}
-				
 				//log 새로고침 load
 				for (let j = 1; j <= window.sessionStorage.length - 3 ; j ++) {
 					
@@ -832,9 +826,7 @@ window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤
 
         		// 선택한 요소에 새로운 <p> 요소를 추가합니다.
         		element.appendChild(newParagraph);
-        		
-    			
-    			
+
     		}
     		else if (Number(turn) == 2){
     			
@@ -850,10 +842,7 @@ window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤
 
         		// 선택한 요소에 새로운 <p> 요소를 추가합니다.
         		element.appendChild(newParagraph);
-        		
-    			
-    			
-    			
+  
     		}
     		 /* (Number(turn) == -1)  */
 				else{
