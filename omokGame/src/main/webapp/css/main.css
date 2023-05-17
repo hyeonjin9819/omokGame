@@ -5,11 +5,10 @@
 
 .whole {
   position: relative;
-  width: 1920px;
+  width: 100%;
   height: 1080px;
   background-color: #444341;
   /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
-
   margin: auto;
 }
 
@@ -18,9 +17,8 @@
   position: absolute;
   width: 632px;
   height: 998px;
-  left: calc(50% - 632px / 2 - 678);
-  top: calc(50% - 998px / 2);
-
+  left: calc(0%);
+  top: calc(50% - 898px / 2 - 4px);
   background: #000000;
   border: 15px solid #1499f8;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
@@ -112,13 +110,11 @@
 
 .rect2 {
   box-sizing: border-box;
-
   position: absolute;
   width: 654px;
   height: 998px;
-  left: calc(50% - 654px / 2 + 633px);
-  top: calc(50% - 998px / 2 - 4px);
-
+  right: calc(0%);
+  top: calc(50% - 898px / 2 - 4px);
   background: #000000;
   border: 15px solid #e259ed;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -212,7 +208,7 @@
   position: absolute;
   width: 418px;
   height: 526px;
-  left: 741px;
+  left: 40%;
   top: 66px;
 }
 
@@ -220,9 +216,8 @@
   position: absolute;
   width: 398px;
   height: 58px;
-  left: 752px;
+  left: 40.5%;
   top: 621px;
-
   font-style: normal;
   font-weight: 700;
   font-size: 48px;
@@ -234,9 +229,8 @@
   position: absolute;
   width: 311px;
   height: 119px;
-  left: 789px;
+  left: 42%;
   top: 735px;
-
   background: #000000;
   border: 10px solid #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -247,26 +241,22 @@
   position: absolute;
   width: 133px;
   height: 48px;
-  left: 890px;
+  left: 47%;
   top: 780px;
-
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 48px;
-
   color: #ffffff;
 }
 
 .exbtn {
   box-sizing: border-box;
-
   position: absolute;
   width: 331px;
   height: 138.98px;
-  left: 789px;
+  left: 42%;
   top: 887px;
-
   background: #000000;
   border: 10px solid #ffffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -277,15 +267,13 @@
   position: absolute;
   width: 92px;
   height: 48px;
-  left: 903px;
+  left: 47.9%;
   top: 915px;
-
   font-family: "Inter";
   font-style: normal;
   font-weight: 700;
   font-size: 40px;
   line-height: 75px;
-
   color: #ffffff;
 }
 

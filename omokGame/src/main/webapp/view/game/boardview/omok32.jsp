@@ -25,6 +25,13 @@ String player2 = uservo2.getNickname();
 <link rel="stylesheet" href="reset.css" type="text/css">
 <link rel="stylesheet" href="omok3.css?after">
 <script type="text/javascript" src="/omokGame/view/game/boardview/js/jagi.js" ></script>
+<script type="text/javascript">
+history.pushState(null, document.title, location.href);  // push 
+window.addEventListener('popstate', function(event) {    //  뒤로가기 이벤트 등록
+   history.pushState(null, document.title, alert('게임 중에는 나가실 수 없습니다.'));  // 다시 push함으로 뒤로가기 Block
+
+});
+</script>
 </head>
 <body style="background-image: url('${pageContext.request.contextPath}/img/oldwood.jpg');">
 

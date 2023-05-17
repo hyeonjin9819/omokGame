@@ -68,7 +68,7 @@ public class UsersController extends HttpServlet {
 				System.out.println("login" +sess.getAttribute("user2"));
 				response.sendRedirect("/omokGame/main.do");
 			} else {
-				response.getWriter().print("<script>alert('�옒紐삳맂 �젒洹쇱엯�땲�떎.'); "
+				response.getWriter().print("<script>alert('모든 플레이어가 로그인하지 않았습니다.'); "
 						+ "location.href = '/omokGame/users/start';</script>");
 			}
 		}else if ("/signUp.do".equals(action)) {
