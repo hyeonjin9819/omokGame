@@ -667,6 +667,24 @@ String player2 = uservo2.getNickname();
 
 		
 				}
+				//log 새로고침 load
+				for (let j = 1; j <= window.sessionStorage.length - 3 ; j ++) {
+					
+					var pre = "arr" + j;
+					var value = window.sessionStorage.getItem(pre);
+					var valarr = value.split(',');
+					var x = Number(valarr[0]);
+					var y = Number(valarr[1]);
+					console.log(valarr)
+
+					var testturn = Number(valarr[2]);
+					
+					
+					logprint(j, testturn,x, y);
+				
+					
+					console.log(j+"//" + value);
+				}
 
 				
 				

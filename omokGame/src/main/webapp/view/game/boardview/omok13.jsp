@@ -32,7 +32,7 @@ String player2 = uservo2.getNickname();
  <div class="blackin" id = "blackin">   </div>      
 <%-- <p>${player1 }${player2 } must be printed</p> --%>
  <div class="realwrap">
- <p>11</p>
+
     <div class="wrap">
         
         <div class="pan">
@@ -664,6 +664,26 @@ String player2 = uservo2.getNickname();
 					
 		
 				}
+				
+				//log 새로고침 load
+				for (let j = 1; j <= window.sessionStorage.length - 3 ; j ++) {
+					
+					var pre = "arr" + j;
+					var value = window.sessionStorage.getItem(pre);
+					var valarr = value.split(',');
+					var x = Number(valarr[0]);
+					var y = Number(valarr[1]);
+					console.log(valarr)
+
+					var testturn = Number(valarr[2]);
+					
+					
+					logprint(j, testturn,x, y);
+				
+					
+					console.log(j+"//" + value);
+				}
+
 
 				
 				
@@ -1103,6 +1123,7 @@ String player2 = uservo2.getNickname();
       
         	    });
         	  }, 0.5);
+      			console.log("closefunc : " + window.sessionStorage.length);
         	}
         
 
@@ -1197,6 +1218,7 @@ String player2 = uservo2.getNickname();
                         
                         return;
                     }
+        
                     
                     turncnt = Number(sessionStorage.getItem("turncnt"));
                     
@@ -1206,7 +1228,7 @@ String player2 = uservo2.getNickname();
                     sessionStorage.setItem('turncnt', turncnt);
      
                     var arridx = 'arr' + turncnt;
-//                     var arridxval = x+','+y+','+turn;
+                    var arridxval = x+','+y+','+turn;
 
 					sessionStorage.setItem(arridx, arridxval); 
 	

@@ -527,16 +527,11 @@ String player2 = uservo2.getNickname();
 
             <div class="turndollback">
                 <div class="turnprint"><span class="turnprinttext"> </span>&nbsp&nbspTurn</div>
-                <%-- <img id = "turndoll" src="${pageContext.request.contextPath}/img/black.png"> --%>
+   
                 <p  onclick="undo()"  id = "undo" >무르기</p>
             </div>
 
         </div>
-        
-<%-- 	     <img class = "panshadow" src="${pageContext.request.contextPath}/img/realshadow.png">  --%>
-
-
-
 
     <script>
 /*     var arr; */
@@ -557,11 +552,7 @@ String player2 = uservo2.getNickname();
     	window.onload = function(){
 
     		var mode = '<%= modeval %>';
-    		console.log(mode);
-    		console.log(mode == 1);
-    		console.log(mode == '1');
-    		console.log(mode == 2);
-    		console.log(mode == '2');
+
         	
         	
 			//세션 스토리지 길이 strlen 에 저장 
@@ -636,10 +627,7 @@ String player2 = uservo2.getNickname();
 				var minwht = parseInt(whitetime/60) + "";
     			var secwht = parseInt(whitetime%60) + "";
     			var timetext2 = timerlen(minwht) + ":" + timerlen(secwht);
-   /*  			document.getElementById("blacktimer").innerHTML = timetext1; */
-    	/* 		document.getElementById("whitetimer").innerHTML = timetext2; */
-    			
-    			
+	
 
 				// 이건 초기 턴 지정 turncnt 가 짝수면 blakc 턴이고 홀수면 white턴임 -> 인덱스에 turn값도 저장 되어 있는데 맨 마지막 착수의 turn값만 불러오는게 귀찮아서 이렇게함
 				if (turncnt % 2 == 0) {
@@ -668,8 +656,28 @@ String player2 = uservo2.getNickname();
 					
 		
 				}
-
 				
+				//log 새로고침 load
+				for (let j = 1; j <= window.sessionStorage.length - 3 ; j ++) {
+					
+					var pre = "arr" + j;
+					var value = window.sessionStorage.getItem(pre);
+					var valarr = value.split(',');
+					var x = Number(valarr[0]);
+					var y = Number(valarr[1]);
+					console.log(valarr)
+
+					var testturn = Number(valarr[2]);
+					
+					
+					logprint(j, testturn,x, y);
+				
+					
+					console.log(j+"//" + value);
+				}
+			
+	
+
 				
 				
 				//저장된 인덱스값 읽어서 바둑판에 뿌려주는부분 (새로고침시 빈 arr에 세션에 저장된 인덱스 값을 뿌려줌 ))
@@ -679,6 +687,10 @@ String player2 = uservo2.getNickname();
 					  
 					  // value 찾기
 					  var value = window.sessionStorage.getItem(key);
+					  
+					  //test
+					  console.log(key);
+					  console.log(value);
 					  
 					 //세션 다긁어 오는 거라 조건을 필요없는거 뺴고 다 긁어와라 이런식으로 지정 
 					  if (key.trim() !== 'turncnt' && key.trim() !== 'blacktime' && key.trim() !== 'whitetime') {
