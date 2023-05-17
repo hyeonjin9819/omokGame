@@ -51,15 +51,19 @@ public class MainController extends HttpServlet {
 			
 			if("1".equals(uvo1.getPlayerNum())) {
 				HistoryVO vo1 = dao.selectList(uvo1.getNickname()); 
+				request.setAttribute("rank1", dao.selectRank(uvo1.getUsersPK()));
 				request.setAttribute("user1", vo1);
 				
 				HistoryVO vo2 = dao.selectList(uvo2.getNickname()); 
+				request.setAttribute("rank2", dao.selectRank(uvo2.getUsersPK()));
 				request.setAttribute("user2", vo2);
 			} else {
 				HistoryVO vo2 = dao.selectList(uvo1.getNickname()); 
+				request.setAttribute("rank1", dao.selectRank(uvo2.getUsersPK()));
 				request.setAttribute("user1", vo2);
 				
 				HistoryVO vo1 = dao.selectList(uvo2.getNickname()); 
+				request.setAttribute("rank2", dao.selectRank(uvo1.getUsersPK()));
 				request.setAttribute("user2", vo1);
 			}
 			
