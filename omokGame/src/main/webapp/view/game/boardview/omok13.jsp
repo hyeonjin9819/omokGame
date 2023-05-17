@@ -548,9 +548,16 @@ String player2 = uservo2.getNickname();
         //시간변수
         var blacktime;
         var whitetime;
+        
+        
     	
         //omok.jsp 열리자마자 초기값 지정하는 함수
     	window.onload = function(){
+        	
+            var audio = new Audio('${pageContext.request.contextPath}/img/bird.mp3');
+            audio.loop = true;
+            audio.volume = 0.9;
+            audio.play();
 
     		var mode = '<%= modeval %>';
     		console.log(mode);

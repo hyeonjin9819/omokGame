@@ -546,6 +546,11 @@ String player2 = uservo2.getNickname();
     	
         //omok.jsp 열리자마자 초기값 지정하는 함수
     	window.onload = function(){
+        	
+    		var audio = new Audio('${pageContext.request.contextPath}/img/people.mp3');
+            audio.loop = true;
+            audio.volume = 0.9;
+            audio.play();
 
     		var mode = '<%= modeval %>';
     		console.log(mode);
