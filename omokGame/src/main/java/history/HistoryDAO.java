@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import users.UsersVO;
+
 public class HistoryDAO {
 	private PreparedStatement pstmt, pstmt2, pstmtPage;
 	private Connection con;
@@ -247,6 +249,31 @@ public class HistoryDAO {
 		}
 		return vo;
 	}
+	
+	// 랭킹 출력
+	   public UsersVO selectRank(int usersno){
+	      UsersVO vo = new UsersVO();
+	      try {
+	      con = dataFactory.getConnection();
+	      String query = "SELECT * FROM (SELECT usersid, ROUND(nvl(wincnt/decode(gamecnt, 0, null, gamecnt)*100, 2)) winrate , RANK() OVER (ORDER BY wincnt DESC) ranking FROM USERS) a where usersid = ?";
+	      pstmt = con.prepareStatement(query);
+	      System.out.println(query);
+	      System.out.println(usersno);
+	      pstmt.setInt(1, usersno);
+	      rs = pstmt.executeQuery();
+	      rs.next();
+	      vo.setId(rs.getString("usersid"));
+	      vo.setWinrate(rs.getInt("winrate"));
+	      vo.setRanking(rs.getInt("ranking"));
+	      
+	   }catch (Exception e) {
+	      e.printStackTrace();
+	   }finally {
+	      try {rs.close();}catch(Exception e) {};
+	      try {pstmt.close();}catch(Exception e) {};
+	   }
+	      return vo;
+	   }
 
 
 }

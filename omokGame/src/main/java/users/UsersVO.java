@@ -13,4 +13,9 @@ public class UsersVO {
 	private int point;
 	private String pwd;
 	
+	private int winrate;
+	private int ranking;
+	
+	
+	
 }
