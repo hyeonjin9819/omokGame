@@ -503,11 +503,6 @@ String player2 = uservo2.getNickname();
             <div id = "blurblack">  </div>
             <div id = "blackwin"><img src="${pageContext.request.contextPath}/img/blackwin.png"></div>
             <div id = "whitewin"><img src="${pageContext.request.contextPath}/img/whitewin.png"></div>
-            <div id="warning">
-               <div id="countdown"></div>
-               <img src="${pageContext.request.contextPath}/img/warning.png">
-            </div>
-            
         </div>
 
     </div>
@@ -518,12 +513,13 @@ String player2 = uservo2.getNickname();
     
     
     
-        <div class="sub">
+       <div class="sub">
         
             <div class="timer">
-            	<div id="timetext">TIMER</div>
-
-                <div id="timerprint"></div>
+            	<div id="blacktimer"></div>
+<!--                 <div id="blacktimer"></div>
+                <div id="whitetimer"></div> -->
+                <div id="whitetimer"></div>
             </div>
             <div class="logbox" id="logbox">   
 
@@ -531,10 +527,16 @@ String player2 = uservo2.getNickname();
 
             <div class="turndollback">
                 <div class="turnprint"><span class="turnprinttext"> </span>&nbsp&nbspTurn</div>
+                <%-- <img id = "turndoll" src="${pageContext.request.contextPath}/img/black.png"> --%>
                 <p  onclick="undo()"  id = "undo" >무르기</p>
             </div>
 
         </div>
+        
+<%-- 	     <img class = "panshadow" src="${pageContext.request.contextPath}/img/realshadow.png">  --%>
+
+
+
 
     <script>
 /*     var arr; */
@@ -596,8 +598,13 @@ String player2 = uservo2.getNickname();
 				//시간 sessionstorage에 올림 / 이유 : 15초남았는데 새로고침이 다시 잔여시간이 1분이 되면 안되므로 저장해서 뿌려줘야한다고 생각함
 				sessionStorage.setItem("blacktime", blacktime);
 				sessionStorage.setItem("whitetime", whitetime);
-
-				document.getElementById("timerprint").innerHTML = "00:30";
+				
+				
+				
+				//0515
+				document.getElementById("blacktimer").innerHTML = "00:30";
+				document.getElementById("whitetimer").innerHTML = "00:30"; 
+				/* document.getElementById("timerprint").innerHTML = "00:30"; */
 				
 				//초기 turn은 black 
 				var spanElement = document.querySelector('.turnprinttext');
@@ -629,8 +636,8 @@ String player2 = uservo2.getNickname();
 				var minwht = parseInt(whitetime/60) + "";
     			var secwht = parseInt(whitetime%60) + "";
     			var timetext2 = timerlen(minwht) + ":" + timerlen(secwht);
-   /*  			document.getElementById("blacktimer").innerHTML = timetext1; */
-    	/* 		document.getElementById("whitetimer").innerHTML = timetext2; */
+   				document.getElementById("blacktimer").innerHTML = timetext1; 
+    	 		document.getElementById("whitetimer").innerHTML = timetext2; 
     			
     			
 
@@ -643,9 +650,8 @@ String player2 = uservo2.getNickname();
 					spanElement.innerHTML = '';
 					spanElement.innerHTML = '<%= player1 %>';
 					spanElement2.style.color = "black";
-					document.getElementById("timerprint").innerHTML = timetext1;
-				
 					
+/* 					document.getElementById("timerprint").innerHTML = timetext1; */
 					
 	
 				}
@@ -656,8 +662,10 @@ String player2 = uservo2.getNickname();
 					spanElement.innerHTML = '';
 					spanElement.innerHTML = '<%= player2 %>';
 					spanElement2.style.color = "white";
-					document.getElementById("timerprint").innerHTML = timetext2;
-
+			/* 		document.getElementById("timerprint").innerHTML = timetext2; */
+					
+					
+					
 		
 				}
 				//log 새로고침 load
@@ -740,68 +748,6 @@ String player2 = uservo2.getNickname();
 		    blackout.style.opacity = 0;
 
     	  }
-        
-  
-        var jagiNum = 1;
-        var imgName = "${pageContext.request.contextPath}/img/fire.gif";
-        
-        
-         var jagi = setInterval(function(){
-            var audio1 = new Audio('${pageContext.request.contextPath}/img/fire.mp3');
-          audio1.loop = false;
-          audio1.volume = 0.4;
-          audio1.play();
-            var warningN = 10;
-            
-            document.getElementById('warning').style.display = 'none';
-            //강풍 메세지 가리기
-          var warning = setTimeout(function(){ // 5초뒤 강풍메세지 나오기
-             var audio2 = new Audio('${pageContext.request.contextPath}/img/wind.mp3');
-             audio2.loop = false;
-             audio2.volume = 0.2;
-              document.getElementById('warning').style.display = 'block';
-             audio2.play();
-             setTimeout(function(){
-                audio2.pause();
-             }, 5000)
-           }, 5000)
-           
-            var cntdown = setInterval(function(){
-               warningN--;
-               if(warningN <6){
-                 document.getElementById('countdown').innerHTML = warningN;
-                 if(warningN == 0){
-                     clearInterval(cntdown);
-                  }
-               }
-           }, 1000)
-           
-              var chLine1 = document.querySelector('.pan:nth-child('+jagiNum+') > .x').querySelectorAll("li");
-              for (var i = 0; i < chLine1.length; i++) {
-                 chLine1[i].querySelector("img").src=imgName;
-                 arr[jagiNum-1][i] = 3;
-                 }
-              var chLine2 = document.querySelector('.pan:nth-child('+(20-jagiNum)+') > .x').querySelectorAll("li");
-              for (var i = 0; i < chLine2.length; i++) {
-                 chLine2[i].querySelector("img").src=imgName;
-                 arr[19-jagiNum][i] = 3;
-                 }
-              for(var i = jagiNum+1; i<(20-jagiNum); i++){
-                 document.querySelector('.pan:nth-child('+i+') > .x').querySelector('li:nth-child('+jagiNum+') > img').src=imgName;
-                 document.querySelector('.pan:nth-child('+i+') > .x').querySelector('li:nth-child('+(20-jagiNum)+') > img').src=imgName;
-                 arr[i-1][jagiNum-1] = 3;
-                 arr[i-1][19-jagiNum] = 3;
-              }
-              console.log(jagiNum);
-              jagiNum++;
-              
-              if(jagiNum == 8){
-                 clearInterval(jagi);
-              }
-         }, 10000)
-      
-
-
         
         function printjari(x) {
         	
@@ -953,8 +899,8 @@ String player2 = uservo2.getNickname();
     			var timetext = timerlen(min) + ":" + timerlen(sec);
     			
         		sessionStorage.setItem("blacktime", blacktime);
-    	/* 		document.getElementById("blacktimer").innerHTML = timetext; */
-    			document.getElementById("timerprint").innerHTML = timetext;
+    	 		document.getElementById("blacktimer").innerHTML = timetext; 
+    	/* 		document.getElementById("timerprint").innerHTML = timetext; */
     			
     			
     			
@@ -993,8 +939,8 @@ String player2 = uservo2.getNickname();
     			var sec = parseInt(whitetime%60)+ "";
     			var timetext = timerlen(min) + ":" + timerlen(sec);
     			sessionStorage.setItem("whitetime", whitetime);
-    		/* 	document.getElementById("whitetimer").innerHTML = timetext; */
-    			document.getElementById("timerprint").innerHTML = timetext;
+    			document.getElementById("whitetimer").innerHTML = timetext; 
+    		/* 	document.getElementById("timerprint").innerHTML = timetext; */
 				
     			//백의 시간초 패배 
     			if (whitetime <= 0){
@@ -1228,9 +1174,14 @@ String player2 = uservo2.getNickname();
 				sessionStorage.setItem(arridx, arridxval); 
 					
               
-				blacktime = 30;
+			/* 	blacktime = 30; */
                 sessionStorage.setItem("blacktime", blacktime);
+                
+/*                 document.getElementById("blacktimer").innerHTML = "01:00"; */
+		/* 		document.getElementById("whitetimer").innerHTML = "01:00"; */
+				
 
+               //temp
                 logprint(turncnt, turn,x, y);
                 turn=2;	
                 
@@ -1281,8 +1232,13 @@ String player2 = uservo2.getNickname();
 
 					sessionStorage.setItem(arridx, arridxval); 
 	
-					whitetime = 30;
+	/* 				whitetime = 30; */
                     sessionStorage.setItem("whitetime", whitetime);
+                    
+       /*              document.getElementById("blacktimer").innerHTML = "01:00";
+    				document.getElementById("whitetimer").innerHTML = "01:00"; */
+    				 
+                    
                     logprint(turncnt, turn,x, y);
                     turn = 1;
                 }else{}
@@ -1293,6 +1249,7 @@ String player2 = uservo2.getNickname();
 
     </script>
     
+
 
 
 </body>
