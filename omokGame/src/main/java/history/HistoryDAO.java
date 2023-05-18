@@ -17,7 +17,7 @@ public class HistoryDAO {
 	private PreparedStatement pstmt, pstmt2, pstmtPage;
 	private Connection con;
 	ResultSet rs, rs2, rs3;
-	private DataSource dataFactory; // �굹以묒뿉 �삤�씪�겢�쑝濡� 諛붽씀硫� �븘�슂�븿 
+	private DataSource dataFactory;
 	
 	public HistoryDAO() {
 
@@ -50,27 +50,33 @@ public class HistoryDAO {
 	}
 	
 	// 유저의 전적이 가져오는 모든 컬럼의 숫자를 구함
-	private int findPage(int id) {
+	private int findPage(int id, int filter) {
 		int maxPage = 0;
 		try {
-			String query = "select max(rnum) as maxnum from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?)";
+			String query = "select max(rnum) as maxnum from( SELECT a.*, ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE ";
+			if(filter == 2) { // 승리만
+				query += " winner =? AND";
+			} else if (filter == 3) { // 패배만
+				query += " winner <>? AND";
+			}
+			
+			query += " user1=? OR user2=?)";
 			pstmtPage = con.prepareStatement(query);
 			
 			String userIdStr = String.valueOf(id); // 변환
 			
-			
-			//pstmtPage.setInt(1, id);
-			//pstmtPage.setInt(2, id);
-			
-			
+			// 공통
 			pstmtPage.setString(1, userIdStr);
 			pstmtPage.setString(2, userIdStr);
+			
+			if (filter == 2 || filter == 3) { // 필터가 있는 경우 변수 하나 더 추가
+				pstmtPage.setString(3, userIdStr);
+			}
 			
 			
 			rs3 = pstmtPage.executeQuery();
 			rs3.next();
 			maxPage = rs3.getInt("maxnum");
-			System.out.println(maxPage);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -83,17 +89,24 @@ public class HistoryDAO {
 	}
 	
 	// 사용자의 전적을 가져오는 리스트 -> 파라미터 pagenation: 아래 페이지네이션 버튼에서 가져옴
-	public List<HistoryVO> getHistoryList(int userId, String filter, int pagenation) {
+	public List<HistoryVO> getHistoryList(int userId, int filter, int pagenation) {
 		List<HistoryVO> list = new ArrayList<HistoryVO>();
 		int beginNum = 0;
 		int finalNum = 0;
 		try {
 			// 페이지당 10개씩 보여줌
-			String query = "select * from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?) WHERE rnum >=? and rnum<=?";
+			String query = "select * from(SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE ";
+			if(filter == 2) { // 승리만
+				query += " winner =? AND";
+			}else if (filter == 3) { // 패배만
+				query += " winner <> ? AND";
+			}
+			query += " user1=? OR user2=?) WHERE rnum >=? and rnum<=?"; // 전체
+			
 			System.out.println(query);
 			pstmt = con.prepareStatement(query);
 
-			int maxNum = findPage(userId); // 전체 컬럼 갯수
+			int maxNum = findPage(userId, filter); // 해당 필터와 userId에 해당하는 전체 컬럼 갯수 => 수정!
 			if (pagenation * 10 > maxNum) { // 넘어오는 컬럼의 갯수가 10 단위가 아님 -> 마지막일 수 있음
 				beginNum = (pagenation-1) * 10 +1;
 				finalNum = maxNum;
@@ -102,25 +115,22 @@ public class HistoryDAO {
 				finalNum = pagenation*10;
 			}
 			String userIdStr = String.valueOf(userId); // 변환
+
 			
-			//pstmt.setInt(1, userId);
-			//pstmt.setInt(2, userId);
-			
-			pstmt.setString(1, userIdStr);
-			pstmt.setString(2, userIdStr);
-			
-			pstmt.setInt(3, beginNum);
-			pstmt.setInt(4, finalNum);
-			
-			
-			// all�씠 �븘�땺�븣留� 媛믪씠 �븘�슂�븿
-//			if (!"all".equals(filter)) {
-//				pstmt.setInt(3, userId);
-//			}
+			if (filter == 1) { // 전체
+				pstmt.setString(1, userIdStr);
+				pstmt.setString(2, userIdStr);
+				pstmt.setInt(3, beginNum);
+				pstmt.setInt(4, finalNum);
+			} else { // 중간에 필터링이 끼어있을 때
+				pstmt.setString(1, userIdStr); // winner 쿼리가 끼기 때문에 하나 더 필요
+				pstmt.setString(2, userIdStr);
+				pstmt.setString(3, userIdStr);
+				pstmt.setInt(4, beginNum);
+				pstmt.setInt(5, finalNum);
+			}
 
 			rs = pstmt.executeQuery();
-			
-
 			while(rs.next()) {
 				HistoryVO vo = new HistoryVO();
 				vo.setGameIndex(rs.getInt("gamesid"));
@@ -147,7 +157,7 @@ public class HistoryDAO {
 	}
 	
 	// 전적에서 왼쪽 유저 정보 불러오는 메소드
-	public HistoryVO getUserInfo(int userId) {
+	public HistoryVO getUserInfo(int userId, int filter) {
 		
 		HistoryVO vo = new HistoryVO();
 		try {
@@ -157,24 +167,10 @@ public class HistoryDAO {
 			System.out.println(query);
 			String userIdStr = String.valueOf(userId); // 변환
 			
-			//pstmt.setInt(1, userId);
 			pstmt.setString(1, userIdStr);
 			
 			rs = pstmt.executeQuery();
-			//int maxNum = findPage(userId); // 전체 컬럼 갯수
-			query = "select max(rnum) as maxnum from( SELECT a.*,ROW_NUMBER() OVER(ORDER BY gamedate DESC) AS rnum FROM games a WHERE user1=? OR user2=?)";
-			pstmtPage = con.prepareStatement(query);
-			
-			
-			/*pstmtPage.setInt(1, userId);
-			pstmtPage.setInt(2, userId);*/
-			pstmtPage.setString(1, userIdStr);
-			pstmtPage.setString(2, userIdStr);
-			
-			rs3 = pstmtPage.executeQuery();
-			rs3.next();
-			int maxNum = rs3.getInt("maxnum");
-			
+			int maxNum = findPage(userId, filter);
 			
 			
 			vo.setTotalPage(maxNum);

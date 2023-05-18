@@ -159,6 +159,10 @@ public class GamesController extends HttpServlet {
 			dao.winUpdate(Integer.parseInt(winner)); // 승리한 user 정보 업데이트
 			dao.defeatUpdate(Integer.parseInt(defeat)); // 패배한 user 정보 업데이트
 			
+		} else if(path.equals("/resetGame.do")) {
+			HttpSession sess = request.getSession();
+	        sess.removeAttribute("mode");
+	        response.sendRedirect("/omokGame/main.do");
 		}
 
 	}
