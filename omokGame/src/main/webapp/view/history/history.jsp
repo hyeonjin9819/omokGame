@@ -9,13 +9,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/history.css">
     <title>history</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
 
     
      <script type="text/javascript">
+     $(document).ready(function(){
+    	 if(${param.filter} == '2'){
+    		 $('#all').attr("class","seltext");
+    		 $('#win').attr("class","seltext check");
+    	 } else if(${param.filter} == '3'){
+    		 $('#all').attr("class","seltext");
+    		 $('#lose').attr("class","seltext check");
+    	 }
+    	 
+     })
+     
      function historyFilter(id){
-    	 location.href="?user=${userno}&pg=1&filter=" + id; 
+    	 location.href="?user=${userno}&pg=1&filter=" + id;
      }
      
      function back() {
@@ -51,13 +63,14 @@
         
         <div class="middleLine"></div>
         <div class="history">
+       		<div class="selector" >
+        		<div class ="seltext check" id="all"><a href='javascript:historyFilter(1);'>ALL</a></div>
+        		<div class='v-line'></div>
+        		<div class ="seltext" id="win"><a href='javascript:historyFilter(2);'>WIN</a></div>
+        		<div class='v-line'></div>
+        		<div class ="seltext" id="lose"><a href='javascript:historyFilter(3);'>DEFEAT</a></div>
+        	</div>
         	<div class= "rightSide">
-             
-             <div>
-             	<button id ="1" onClick=historyFilter(id) value="1">All</button>
-             	<button id ="2" onClick=historyFilter(id) value="2">WIN</button>
-             	<button id="3" onClick=historyFilter(id) value="3">DEFEAT</button>
-             </div>
              
             <table class="historyTable">
                 <tr id = "title">
