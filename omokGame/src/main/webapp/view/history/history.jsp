@@ -11,16 +11,11 @@
     <title>history</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     
-    <script>
-    function test() {
-    	alert($("#filter").val());
-    	
-    }
-    </script>
+
     
      <script type="text/javascript">
      function historyFilter(id){
-    	 location.href="?filter=" + id; 
+    	 location.href="?user=${userno}&pg=1&filter=" + id; 
      }
      
      function back() {
@@ -57,21 +52,12 @@
         <div class="middleLine"></div>
         <div class="history">
         	<div class= "rightSide">
-        	<div>
-<!-- 			  <select id = "filter" name="filter" onchange="handleOnChange(this)" onclick="historyFilter">
-			  	<option value="all">All</option>
-			    <option value="win">WIN</option>
-			    <option value="defeat">DEFEAT</option>
-			  </select>
-			  <div id='result'></div>
-			  <div> -->
-             </div>
              
-<!--               <div>
-             	<button id ="all" onClick=historyFilter(id) value="all">All</button>
-             	<button id ="win" onClick=historyFilter(id) value="win">WIN</button>
-             	<button id="defeat" onClick=historyFilter(id) value="defeat">DEFEAT</button>
-             </div> -->
+             <div>
+             	<button id ="1" onClick=historyFilter(id) value="1">All</button>
+             	<button id ="2" onClick=historyFilter(id) value="2">WIN</button>
+             	<button id="3" onClick=historyFilter(id) value="3">DEFEAT</button>
+             </div>
              
             <table class="historyTable">
                 <tr id = "title">
@@ -106,18 +92,18 @@
         </div>
         
         <div class="tableWrap">
-              	<!-- START : 페이지네이션  -->
+
 		<nav aria-label="..." >
 			<div style="width:100%" class="halfpage">
 			<ul class="pagination pagination-sm">
 				<c:forEach begin="1" end="${data.totalPage / 10 +1}" step="1" var="i">
-						<li class="page-item"><a style="background-color: black; color: white; font-size:larger" class="page-link"href="index.do?user=${userno}&pg=${i}">${i}</a></li>
+						<li class="page-item"><a style="background-color: black; color: white; font-size:larger" class="page-link"href="index.do?user=${userno}&pg=${i}&filter=${param.filter}">${i}</a></li>
 				</c:forEach>
 			</ul>
 			</div>
 		</nav>	
 	</div>
-	            </div> 
+	 </div> 
 	
     </div>
 </body>
