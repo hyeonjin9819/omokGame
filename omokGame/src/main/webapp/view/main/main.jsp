@@ -12,6 +12,10 @@
 </style>
 <link href="${pageContext.request.contextPath}/css/main.css?after" rel="stylesheet" type="text/css">
 <script>
+/* 임시 */
+window.onload = function(){
+    sessionStorage.clear();   
+}
 // rect1 클래스의 onclick 이벤트를 클릭하면 view1 함수 실행
 	function view(userno) {
 		//location 내장객체를 이용하여 history1(컨트롤러 역할) 서블릿으로 이동한다.

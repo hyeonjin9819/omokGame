@@ -47,6 +47,9 @@
          $('.agreeCheckbox').focus();
          return;
       }
+      if (!confirm('가입하시겠습니까?')) {
+          return;
+      }
 
       var params = $("#formname1").serialize();
       $.ajax({
@@ -59,7 +62,7 @@
          },
          success : function(result) {
             alert("성공")
-            location.replace('/omokGame/users/start')
+            $("#formname1").submit();
          }
       });
    }
@@ -106,7 +109,7 @@
             if (data == 'nicknameUnchk') {
                alert('중복된 닉네임입니다.');
                $('.inputNickname').focus();
-               con = false;
+               conNickname = false;
             } else if (data == 'nicknameChk') {
                alert('사용할 수 있는 닉네임입니다!');
                $('input[name=nicknameDuple]').attr('value', 'nicknameChk')
@@ -114,7 +117,7 @@
          }
       })
       if (!conNickname)
-         false;
+         return;
    }
 
    // id 중복체크
@@ -139,7 +142,7 @@
             if (data == 'idUnchk') {
                alert('중복된 아이디입니다.');
                $('.inputId').focus();
-               con = false;
+               conId = false;
             } else if (data == 'idChk') {
                alert('사용할 수 있는 아이디입니다!');
                $('input[name=idDuple]').attr('value', 'idChk')
@@ -147,23 +150,23 @@
          }
       })
       if (!conId)
-         false;
+         return;
    }
 </script>
 
 </head>
 <body>
-   <form id="formname1">
+      <form id="formname1" action="/omokGame/users/start" method="post">
 
       <div class="wrapper">
 
-         <img class="omokImg" src="../../img/omok2img.png" height="430px" />
+         <img class="omokImg" src="../../img/omok2img.png" height="650px" width="500px" />
 
          <div class="signUp">
             <div class="infoForm">
                <div class="agreeForm">
                   <div class="agreeHeader">개인정보 수집 및 이용 동의</div>
-                  <div class="agreeBody">(주)그래서팀명뭔데는 OMOK 이용자 식별을 위해 ID, 비밀번호를
+                  <div class="agreeBody">(주)ANT는 OMOK 이용자 식별을 위해 ID, 비밀번호를
                      수집하고 있으며 게임 탈퇴 시까지 이용합니다</div>
                   <div class="agreeFooter">
                      <input type="checkbox" id="check" class="agreeCheckbox"> <label for="check">동의합니다</label>

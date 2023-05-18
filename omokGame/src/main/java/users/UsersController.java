@@ -40,21 +40,21 @@ public class UsersController extends HttpServlet {
 			HttpSession sess = request.getSession();
 			PrintWriter out = response.getWriter();
 			
-			
+			UsersVO uvo = new UsersVO();
 			if(vo == null) {
 				out.print("false");
 			} else {
 				if("2".equals(cnt)) {
-					UsersVO uvo = (UsersVO) sess.getAttribute("user1");
 					if(id.equals(uvo.getId())) {
 						out.print("dupli");
 					} else {
-						sess.setAttribute("user"+cnt, vo);
+						sess.setAttribute("user"+playerNum, vo);
 						out.print("true");
 					}
 				} else {
-					sess.setAttribute("user"+cnt, vo);
+					sess.setAttribute("user"+playerNum, vo);
 					out.print("true");
+					uvo = (UsersVO) sess.getAttribute("user"+playerNum);
 				}
 				
 			}
